@@ -1,5 +1,6 @@
 import Home from './components/Home'
 import Profile from './components/Profile';
+import JobDetails from './components/Job-Details/JobDetails';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "profile/",
     element: <Profile />,
   },
+  {
+    path: '/job-details',
+    element: < JobDetails/>
+  }
 ]);
 
 function App() {
