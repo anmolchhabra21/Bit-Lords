@@ -10,8 +10,8 @@ import {
 const AddJob = () => {
   return (
     <div className="container">
-      <h3>Add a new Job</h3>
-
+      <h2>Add a new Job</h2>
+      <br />
       <form>
         <div>
           <label>Name </label>
@@ -53,39 +53,39 @@ const AddJob = () => {
         <div>
           <label>Minimum CGPA </label>
           <input type="number" name="cgpa" placeholder="Minimum CG Criteria" />
-          </div>
-          <div>
-          <label className="title">Eligible Departments</label>
-        
-        <span>
-        <label className="short">CSE </label>
-        <input type="checkbox" value="CSE" />
-
-        <label className="short">ECE </label>
-        <input type="checkbox" value="ECE" />
-
-        <label className="short">MnC </label>
-        <input type="checkbox" value="MnC" />
-
-        <label className="short">EE </label>
-        <input type="checkbox" value="EE" />
-
-        <label className="short">Mech </label>
-        <input type="checkbox" value="Mech" />
-
-        <label className="short">Civil </label>
-        <input type="checkbox" value="Civil" />
- 
-        <label className="short">Petro </label>
-        <input type="checkbox" value="Petro" />
-
-        <label className="short">Mining </label>
-        <input type="checkbox" value="Mining" />
-        </span>
         </div>
         <div>
-        <label>Company Logo </label>
-        <input type="file" id="logo" name="logo" />
+          <label className="title">Eligible Departments</label>
+
+          <span>
+            <input type="checkbox" value="CSE" />
+            <label className="short">CSE </label>
+
+            <input type="checkbox" value="ECE" />
+            <label className="short">ECE </label>
+
+            <input type="checkbox" value="MnC" />
+            <label className="short">MnC </label>
+
+            <input type="checkbox" value="EE" />
+            <label className="short">EE </label>
+
+            <input type="checkbox" value="Mech" />
+            <label className="short">Mech </label>
+
+            <input type="checkbox" value="Civil" />
+            <label className="short">Civil </label>
+
+            <input type="checkbox" value="Petro" />
+            <label className="short">Petro </label>
+
+            <input type="checkbox" value="Mining" />
+            <label className="short">Mining </label>
+          </span>
+        </div>
+        <div>
+          <label>Company Logo </label>
+          <input type="file" id="logo" name="logo" />
         </div>
       </form>
     </div>
