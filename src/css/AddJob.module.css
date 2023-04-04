@@ -1,4 +1,4 @@
-div:not(.container){
+.AddJob{
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0;
@@ -18,7 +18,7 @@ div:not(.container){
 label{
     width: 200px;
 }
-input{
+.Input{
     
     flex-basis: 300px;
     flex-grow: 1;
