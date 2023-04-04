@@ -13,11 +13,22 @@ import React, { useState } from "react";
 import { styled } from "@mui/system";
 import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
 import { Mail, Notifications } from "@mui/icons-material";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 // const styledToolbar = styled(Toolbar)({
 //   display:"flex",
 //   justifyContent: "space-between",
 // });
+
+const sOut = ()=> {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+}
 
 const Search = styled("div")(({ theme }) => ({
   backgroundColor: "white",
@@ -46,7 +57,22 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [User, setUser] = useState(null);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      
+      const uid = user.uid;
+      // ...
+    } else {
+      navigate('/signin')
+    }
+  });
+
+
   return (
     <AppBar position="sticky">
       <Toolbar sx={{ justifyContent: "space-between" }}>
@@ -94,7 +120,7 @@ const Navbar = () => {
       >
         <MenuItem>Profile</MenuItem>
         <MenuItem>My account</MenuItem>
-        <MenuItem>Logout</MenuItem>
+        <MenuItem onClick={sOut}>Logout</MenuItem>
       </Menu>
     </AppBar>
   );
