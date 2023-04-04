@@ -7,6 +7,7 @@ import {
   ListItemIcon,
   ListItemText,
   Switch,
+  Typography,
 } from "@mui/material";
 import {
   AccountBox,
@@ -21,12 +22,15 @@ import {
 
 const Sidebar = () => {
   return (
-    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
+    // <Box color="white" bgcolor="#2e323b" p={2} sx={{ display: { xs: "none", sm: "block" } }}>
+    <Box color="white" bgcolor="#2e323b" p={3} sx={{ width:"240px" , display: { xs: "none", sm: "block" } }}> 
+      {/* <Box sx={{ position: "fixed" }}> */}
       <Box sx={{ position: "fixed" }}>
+        <Typography variant="h4" sx={{textAlign:"center", color:"#4ba2b6"}}>Recutes</Typography>
         <List>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <Home />
               </ListItemIcon>
               <ListItemText primary="HomePage" />
@@ -34,7 +38,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <Pages />
               </ListItemIcon>
               <ListItemText primary="Pages" />
@@ -42,7 +46,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <Group />
               </ListItemIcon>
               <ListItemText primary="Groups" />
@@ -50,7 +54,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <Shop />
               </ListItemIcon>
               <ListItemText primary="MarketPlace" />
@@ -58,7 +62,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <Person />
               </ListItemIcon>
               <ListItemText primary="Friends" />
@@ -66,7 +70,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <Settings />
               </ListItemIcon>
               <ListItemText primary="Settings" />
@@ -74,7 +78,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <AccountBox />
               </ListItemIcon>
               <ListItemText primary="Profile" />
@@ -82,7 +86,7 @@ const Sidebar = () => {
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
-              <ListItemIcon>
+              <ListItemIcon style={{color: "#4ba2b6"}}>
                 <ModeNight />
               </ListItemIcon>
               <Switch />

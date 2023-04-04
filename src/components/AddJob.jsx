@@ -3,9 +3,15 @@ import styles from "./../css/AddJob.module.css";
 import {
   Button
 } from "@mui/material";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 
 const AddJob = () => {
   return (
+    <>
+    <Navbar/>
+    <div style={{display:"flex", height: "100vh"}}>
+    <Sidebar/>
     <div className={styles.container}>
       <h2>Add a new Job</h2>
       <br />
@@ -87,6 +93,8 @@ const AddJob = () => {
         <Button variant="contained">Submit</Button>
       </form>
     </div>
+    </div>
+    </>
   );
 };
 

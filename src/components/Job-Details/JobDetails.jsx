@@ -2,6 +2,8 @@ import React from "react";
 import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg"
 import { FaBriefcase, FaAngleDoubleRight } from "react-icons/fa";
 import "./JobDetails.css"
+import Sidebar from "../Sidebar";
+import Navbar from "../Navbar";
 
 // Company Object
 const companyDetails = {
@@ -54,6 +56,10 @@ const companyDetails = {
 
 const JobDetails = () => {
   return (
+    <>
+    <Navbar/>
+    <div style={{display:"flex"}}>
+    <Sidebar/>
     <div className="companyWrapper">
       <div className="companyHead">
         <div className="nameRole">
@@ -122,7 +128,7 @@ const JobDetails = () => {
             (responsibility) => (
               <li>{responsibility}</li>
             )
-          )}
+            )}
         </ul>
 
         <div className="desc">
@@ -138,13 +144,13 @@ const JobDetails = () => {
             <ul>
               {companyDetails.companyDesc.eligibleBranches.map((branch) => (
                 <li>{branch}</li>
-              ))}
+                ))}
             </ul>
           </li>
 
           {companyDetails.companyDesc.basicQualifications.map((basicQ) => (
             <li>{basicQ}</li>
-          ))}
+            ))}
         </ul>
 
         <div className="desc">
@@ -158,11 +164,13 @@ const JobDetails = () => {
             (preferredQ) => (
               <li>{preferredQ}</li>
             )
-          )}
+            )}
         </ul>
       </div>
 
     </div>
+    </div>
+    </>
   );
 };
 
