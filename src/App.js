@@ -1,5 +1,5 @@
 import Home from './components/Home'
-import Profile from './components/Profile';
+// import Profile from './components/Profile';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,10 +11,7 @@ const router = createBrowserRouter([
     element: <Home />,
     // errorElement: <ErrorPage />,
   },
-  {
-    path: "profile/",
-    element: <Profile />,
-  },
+  
 ]);
 
 function App() {
