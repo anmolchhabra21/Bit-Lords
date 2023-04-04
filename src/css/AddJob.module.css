@@ -1,0 +1,37 @@
+.AddJob{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+}
+
+.container{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    font-family: "Roboto";
+    line-height: 1.5rem;
+}
+
+
+label{
+    width: 200px;
+}
+.Input{
+    
+    flex-basis: 300px;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 4px;
+    border-width: 0;
+    
+}
+.short{
+    margin-right: 8px;
+}
+span>input{
+    height: 15px;
+    width: 15px;
+}
