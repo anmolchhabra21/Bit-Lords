@@ -1,7 +1,7 @@
 import React from "react";
-import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg";
+import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg"
 import { FaBriefcase, FaAngleDoubleRight } from "react-icons/fa";
-import "./JobDetails.css";
+import "./JobDetails.css"
 
 // Company Object
 const companyDetails = {
@@ -68,7 +68,7 @@ const JobDetails = () => {
         </div>
 
         <div className="companyHeadRight">
-          <button className="applyBtn">Apply < FaBriefcase/> </button>
+          <button className="applyBtn">Apply</button>
         </div>
       </div>
 
