@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import AddJob from './components/AddJob';
 import Sidebar from './components/Sidebar';
+import SignIn from './components/SignIn';
+import SignUp from './components/signup';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: '/job-details',
     element: <JobDetails/>
+  },
+  {
+    path: '/signin',
+    element: <SignIn/>
+  },
+  {
+    path: '/signup',
+    element: <SignUp/>
   }
 ]);
 
