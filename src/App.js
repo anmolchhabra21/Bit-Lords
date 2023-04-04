@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AddJob from './components/AddJob';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "profile/",
     element: <Profile />,
+  },
+  {
+    path: "newjob/",
+    element: <AddJob/>,
   },
   {
     path: '/job-details',
