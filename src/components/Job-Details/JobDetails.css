@@ -1,0 +1,138 @@
+.companyHead {
+  margin: 50px 100px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.companyHead:hover {
+  transform: translate(0, -8px);
+  transition: transform 330ms ease-in-out;
+}
+
+.nameRole {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.nameRole img {
+  width: 250px;
+  border-radius: 10px;
+  margin-left: 0px;
+}
+
+.companyHeadLeft {
+  margin-left: 20px;
+}
+
+.companyHeadLeft div {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.companyHeadLeft span {
+  font-size: 20px;
+}
+
+.companyHeadRight {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  align-items: center;
+}
+
+.CTC {
+  width: 100px;
+  color: darkorange;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  background-color: #ffcc99;
+  border-radius: 25px;
+}
+
+.deadLineHeading,
+.jobLocationsHeading,
+.jobDescHeading {
+  margin-bottom: -20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.deadLine {
+  margin: -10px 100px;
+}
+
+.jobLocations {
+  margin: -10px 100px;
+}
+
+.jobDesc {
+  margin: -10px 100px;
+}
+
+.applyBtn {
+  margin: -10px 100px;
+}
+
+.deadLine h3 {
+  margin-right: 4px;
+}
+
+.jobLocations h3 {
+  margin-right: 4px;
+}
+
+.jobDesc h3 {
+  margin-right: 4px;
+}
+
+.applicationOpen {
+  color: green;
+  margin-top: -10px;
+}
+
+.desc {
+  display: flex;
+  flex-direction: row;
+}
+
+.desc:hover {
+  transform: translate(5px, 0px);
+  transition: transform 330ms ease-in-out;
+  cursor: pointer;
+}
+
+.applyBtn {
+  /* display: inline-block; */
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 17px 48px;
+  color: #fff;
+  background-color: #1ed760;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.applyBtn:hover {
+  transform: scale(1.04);
+  transition: transform 330ms ease-in-out;
+  background-color: #21e065;
+}
