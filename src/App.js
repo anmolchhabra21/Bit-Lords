@@ -8,15 +8,16 @@ import AddJob from './components/AddJob';
 import Sidebar from './components/Sidebar';
 import SignIn from './components/SignIn';
 import SignUp from './components/signup';
+import CompanyDash from './components/CompanyDash/CompanyDash';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/student",
     element: <Home />,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "newjob/",
+    path: "/newjob",
     element:<AddJob/>
   },
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <SignUp/>
+  },
+  {
+    path: '/company',
+    element: <CompanyDash/>
   }
 ]);
 
