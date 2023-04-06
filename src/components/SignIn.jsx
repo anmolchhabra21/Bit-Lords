@@ -42,7 +42,7 @@ export default function SignIn() {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      navigate("/");
+      navigate("/student");
     }
   });
 
