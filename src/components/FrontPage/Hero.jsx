@@ -44,7 +44,7 @@ const Hero = () => {
                 mb: 4,
               }}
             >
-              Welcome to IIT(ISM)Dhanbad 
+              Welcome to IIT(ISM) Dhanbad 
             </Typography>
             <Title variant="h1">
             A one stop portal for Placements.
@@ -68,7 +68,7 @@ const Hero = () => {
             <img
               src={heroImg}
               alt="heroImg"
-              style={{ maxWidth: "100%", marginBottom: "2rem" }}
+              style={{ maxWidth: "100vh", marginBottom: "2rem" }}
             />
           </Box>
         </CustomBox>
