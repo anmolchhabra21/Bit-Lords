@@ -8,6 +8,7 @@ import AddJob from './components/AddJob';
 import Sidebar from './components/Sidebar';
 import SignIn from './components/SignIn';
 import SignUp from './components/signup';
+import Hero from './components/FrontPage/Hero';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <SignUp/>
+  },
+  {
+    path: '/',
+    element: <Hero/>
   }
 ]);
 
