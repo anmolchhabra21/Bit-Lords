@@ -24,7 +24,7 @@ import { useNavigate } from "react-router-dom";
 
 const sOut = ()=> {
   signOut(auth).then(() => {
-    // Sign-out successful.
+    // Signed Out
   }).catch((error) => {
     // An error happened.
   });
@@ -70,7 +70,7 @@ const Navbar = () => {
         // ...
       } else {
         // User is signed out
-        navigate('/signin');
+        navigate('/');
       }
     });
     

@@ -7,6 +7,7 @@ import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 import { CardActionArea } from "@mui/material";
 import './CompanyDash.css';
+import CompanyAuthSecurity from "../Company/CompanyAuthSecurity";
 
 const CompanyDash = () => {
     const navigate = useNavigate();

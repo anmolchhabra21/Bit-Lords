@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -40,32 +40,44 @@ const theme = createTheme();
 export default function SignIn() {
   const navigate = useNavigate();
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      navigate("/student");
-    }
-  });
+
+  useEffect(() => {
+    
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/student");
+      }
+    });
+  
+  }, [])
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if(data.get("email").includes("@iitism.ac.in")){
 
-    signInWithEmailAndPassword(auth, data.get("email"), data.get("password"))
+      
+      signInWithEmailAndPassword(auth, data.get("email"), data.get("password"))
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/");
+        navigate("/student");
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
-
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
+      
+      // console.log({
+        //   email: data.get('email'),
+        //   password: data.get('password'),
+        // });
+      }
+      else{
+        alert("SignIn with IIT ISM email Only");
+      }
   };
 
   return (

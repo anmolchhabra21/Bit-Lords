@@ -2,6 +2,7 @@ import { Box, styled, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import Navbar from "./Navbarr";
+import ReactTypical from "./ReactTypical";
 
 import heroImg from "../media/hero_illustration.png";
 
@@ -37,25 +38,38 @@ const Hero = () => {
             <Typography
               variant="body2"
               sx={{
-                fontSize: "18px",
+                fontSize: "20px",
                 color: "#687690",
                 fontWeight: "500",
-                mt: 10,
-                mb: 4,
+                mt: 0,
+                mb: 0,
               }}
             >
-              Welcome to IIT(ISM)Dhanbad 
+              Welcome to IIT(ISM) Dhanbad
             </Typography>
-            <Title variant="h1">
-            A one stop portal for Placements.
-            </Title>
-            <Typography
-              variant="body2"
-              sx={{ fontSize: "18px", color: "#5A6473", my: 4 }}
-            >
-              Welcome to the recruitment website For IIT (ISM) Dhanbad.
-              IIT is India's foremost industrial leadership development institution. Our Graduates are a combination of rigorous thinking, hardwork and fundamental stronghold. They are nurtured by the institute to strive for excellence and deliver impact in their field of work. Let us begin...
-            </Typography>
+
+            <div style={{
+              height: '180px'
+            }}>
+              <Title variant="h1">
+                <ReactTypical />
+              </Title>
+            </div>
+
+            <div>
+              <Typography
+                variant="body2"
+                sx={{ fontSize: "18px", color: "#5A6473", my: 4, mt: 0 }}
+              >
+                Welcome to the recruitment website For IIT (ISM) Dhanbad. IIT is
+                India's foremost industrial leadership development institution.
+                Our Graduates are a combination of rigorous thinking, hardwork
+                and fundamental stronghold. They are nurtured by the institute
+                to strive for excellence and deliver impact in their field of
+                work. Let us begin...
+              </Typography>
+            </div>
+
             {/* <CustomButton
               backgroundColor="#0F1B4C"
               color="#fff"
@@ -68,7 +82,7 @@ const Hero = () => {
             <img
               src={heroImg}
               alt="heroImg"
-              style={{ maxWidth: "100%", marginBottom: "2rem" }}
+              style={{ maxWidth: "100vh", marginBottom: "2rem" }}
             />
           </Box>
         </CustomBox>

@@ -5,6 +5,7 @@ import {
 } from "@mui/material";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import CompanyAuthSecurity from "./Company/CompanyAuthSecurity";
 
 const AddJob = () => {
   return (
