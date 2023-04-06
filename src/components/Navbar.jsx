@@ -91,7 +91,7 @@ const Navbar = () => {
             <Notifications />
           </Badge>
           <Avatar
-            sx={{ width: 30, height: 30 }}
+            sx={{ width: 30, height: 30, cursor:"pointer"}}
             src="https://picsum.photos/200/300"
             onClick={(e) => setOpen(true)}
           />

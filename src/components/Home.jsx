@@ -4,16 +4,18 @@ import Navbar from './Navbar'
 import Feed from './Home/Feed'
 import SideBar from './Sidebar'
 import RightBar from './Home/Rightbar'
+import Profile from '../components/StudentProfile'
 
 
 const Home = () => {
   return (
     <Box>
       <Navbar/>
-      <Stack direction="row" spacing={2} justifyContent="space-between">
+      <Stack direction="row" spacing={2}>
         <SideBar />
-        <Feed />
-        <RightBar />
+        {/* <Feed />
+        <RightBar /> */}
+        <Profile/>
       </Stack>
     </Box>
   )

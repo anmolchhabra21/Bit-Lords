@@ -23,7 +23,7 @@ import {
 const Sidebar = () => {
   return (
     // <Box color="white" bgcolor="#2e323b" p={2} sx={{ display: { xs: "none", sm: "block" } }}>
-    <Box color="white" bgcolor="#2e323b" p={3} sx={{ width:"240px" , display: { xs: "none", sm: "block" } }}> 
+    <Box color="white" bgcolor="#2e323b" p={3} sx={{ minWidth:"200px" , display: { xs: "none", sm: "block" } }}> 
       {/* <Box sx={{ position: "fixed" }}> */}
       <Box sx={{ position: "fixed" }}>
         <Typography variant="h4" sx={{textAlign:"center", color:"#4ba2b6"}}>Recutes</Typography>
