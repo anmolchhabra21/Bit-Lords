@@ -12,7 +12,7 @@ import {
   styled,
 } from "@mui/material";
 import { useState } from "react";
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../firebase";
 
 export const Navbar = () => {
@@ -25,12 +25,18 @@ export const Navbar = () => {
   const provider = new GoogleAuthProvider();
 
 const recruiterLogin = () => {
-  console.log("Recruiter login");
-  signInWithRedirect(auth, provider)
-  .then((result) => {
+  const user = auth.currentUser;
+  if (user !== null){
+    navigate('/company')
+  }
+  else{
+
+    signInWithPopup(auth, provider)
+    .then((result) => {
     const user = result.user;
     // IdP data available using getAdditionalUserInfo(result)
     // ...
+    navigate('/company');
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -38,6 +44,7 @@ const recruiterLogin = () => {
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+}
 }
 
 
@@ -171,11 +178,11 @@ const recruiterLogin = () => {
           color="#fff"
           buttonText="Register"
         /> */}
-        <Button onClick={()=>{console.log("running1")}} backgroundColor="#0F1B4C"
+        <Button onClick={()=>{navigate('/signin')}} sx={{bgcolor:"#0F1B4C"}}
            variant="contained">Students</Button>
-        <Button onClick={()=>{console.log("running2")}} backgroundColor="#0F1B4C"
+        <Button onClick={recruiterLogin} sx={{bgcolor:"#0F1B4C"}} 
            variant="contained">Recruter</Button>
-        <Button onClick={()=>{console.log("running3")}} backgroundColor="#0F1B4C"
+        <Button onClick={()=>{console.log("running3")}} sx={{bgcolor:"#0F1B4C"}}
            variant="contained">SCPT</Button>
                 {/* <CustomButton
           onClick={()=>console.log("Hello")}

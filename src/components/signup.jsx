@@ -36,11 +36,16 @@ export default function SignUp() {
 
   const navigate = useNavigate();
 
-  onAuthStateChanged(auth, (user)=>{
-    if(user){
-      navigate('/student');
-    }
-  })
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=>{
+      if(user){
+        navigate('/student');
+      }
+    })
+  
+    
+  }, [])
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
