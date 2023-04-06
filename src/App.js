@@ -1,5 +1,5 @@
 import Home from './components/Home'
-import JobDetails from './components/job-details/JobDetails';
+import JobDetails from './components/Job-Details/JobDetails';
 import {
   createBrowserRouter,
   RouterProvider,
