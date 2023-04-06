@@ -69,7 +69,7 @@ export default function SignUp() {
       });
     }
     else{
-      alert("SignIn with IITISM email Only");
+      alert("SignUp with IIT ISM email Only");
     };
       
 

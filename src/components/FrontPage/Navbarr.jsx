@@ -26,7 +26,7 @@ export const Navbar = () => {
 
 const recruiterLogin = () => {
   const user = auth.currentUser;
-  if (user !== null){
+  if (user !== null && !user.email.includes("@iitism.ac.in")){
     navigate('/company')
   }
   else{
