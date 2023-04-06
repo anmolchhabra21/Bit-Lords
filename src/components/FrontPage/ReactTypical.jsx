@@ -1,9 +1,14 @@
+import { fontSize } from "@mui/system";
 import React from "react";
 import Typical from "react-typical";
 const ReactTypical = () => {
   return (
     <div>
-      <h4>
+      <h5 style={{
+        marginTop:'0px',
+        marginBottom:'20px',
+        fontSize: '40px',
+      }}>
         <Typical
           loop={Infinity}
           wrapper="b"
@@ -18,7 +23,7 @@ const ReactTypical = () => {
             1000,
           ]}
         ></Typical>
-      </h4>
+      </h5>
     </div>
   );
 };
