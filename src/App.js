@@ -5,21 +5,45 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AddJob from './components/AddJob';
-// import Sidebar from './components/Sidebar';
+import SignIn from './components/SignIn';
+import SignUp from './components/signup';
+import Hero from './components/FrontPage/Hero';
+import CompanyDash from './components/CompanyDash/CompanyDash';
+import StuEditProfile from './components/StudentEditProfile'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/student",
     element: <Home />,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "newjob/",
+    path: "/newjob",
     element:<AddJob/>
   },
   {
     path: '/job-details',
     element: <JobDetails/>
+  },
+  {
+    path: '/signin',
+    element: <SignIn/>
+  },
+  {
+    path: '/signup',
+    element: <SignUp/>
+  },
+  {
+    path: '/',
+    element: <Hero/>
+  },
+  {
+    path: '/company',
+    element: <CompanyDash/>
+  },
+  {
+    path: '/student/profile',
+    element: <StuEditProfile />
   }
 ]);
 
