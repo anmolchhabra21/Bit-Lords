@@ -9,15 +9,16 @@ import Sidebar from './components/Sidebar';
 import SignIn from './components/SignIn';
 import SignUp from './components/signup';
 import Hero from './components/FrontPage/Hero';
+import CompanyDash from './components/CompanyDash/CompanyDash';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/student",
     element: <Home />,
     // errorElement: <ErrorPage />,
   },
   {
-    path: "newjob/",
+    path: "/newjob",
     element:<AddJob/>
   },
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Hero/>
+  },
+  {
+    path: '/company',
+    element: <CompanyDash/>
   }
 ]);
 

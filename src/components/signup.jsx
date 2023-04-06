@@ -38,7 +38,7 @@ export default function SignUp() {
 
   onAuthStateChanged(auth, (user)=>{
     if(user){
-      navigate('/');
+      navigate('/student');
     }
   })
 

@@ -9,7 +9,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/system";
 import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
 import { Mail, Notifications } from "@mui/icons-material";
@@ -59,25 +59,44 @@ const UserBox = styled(Box)(({ theme }) => ({
 const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [User, setUser] = useState(null);
+  const [Name, setName] = useState("");
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        setName(user.displayName);
+        // ...
+      } else {
+        // User is signed out
+        navigate('/signin');
+      }
+    });
+    
+  
+    
+  }, [])
+  
+
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     // User is signed in, see docs for a list of available properties
       
-      const uid = user.uid;
-      // ...
-    } else {
-      navigate('/signin')
-    }
-  });
+  //     const uid = user.uid;
+  //     setName(user.displayName);
+  //     // ...
+  //   } else {
+  //     navigate('/signin')
+  //   }
+  // });
 
 
   return (
     <AppBar position="sticky">
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          Anmol Chh
+          {Name}
         </Typography>
         <SnippetFolderIcon sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
