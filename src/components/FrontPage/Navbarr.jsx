@@ -7,6 +7,7 @@ import { Container } from "@mui/system";
 import CustomButton from "./CustomButton";
 import { useNavigate } from "react-router-dom";
 import {
+  Button,
   Drawer,
   styled,
 } from "@mui/material";
@@ -170,10 +171,17 @@ const recruiterLogin = () => {
           color="#fff"
           buttonText="Register"
         /> */}
-                <CustomButton onClick={()=>{navigate('/signin')}}
+        <Button onClick={()=>{console.log("running1")}} backgroundColor="#0F1B4C"
+           variant="contained">Students</Button>
+        <Button onClick={()=>{console.log("running2")}} backgroundColor="#0F1B4C"
+           variant="contained">Recruter</Button>
+        <Button onClick={()=>{console.log("running3")}} backgroundColor="#0F1B4C"
+           variant="contained">SCPT</Button>
+                {/* <CustomButton
+          onClick={()=>console.log("Hello")}
           backgroundColor="#0F1B4C"
           color="#fff"
-          buttonText="Student"
+          buttonText="Students"
         />
                 <CustomButton onClick={()=>{console.log("hihi")}}
           backgroundColor="#0F1B4C"
@@ -184,7 +192,7 @@ const recruiterLogin = () => {
           backgroundColor="#0F1B4C"
           color="#fff"
           buttonText="SCPT"
-        />
+        /> */}
 
       </Box>
     </NavbarContainer>
