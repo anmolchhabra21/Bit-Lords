@@ -104,6 +104,7 @@ const recruiterLogin = () => {
     alignItems: "center",
     justifyContent: "space-between",
     padding: theme.spacing(3),
+    // backgroundColor: "#beebe2", 
     // marhin: theme.spacing(3),
     [theme.breakpoints.down("md")]: {
       padding: theme.spacing(2),
@@ -139,7 +140,11 @@ const recruiterLogin = () => {
             {list("left")}
           </Drawer>
           <NavbarLogo src={logoImg} alt="logo" />
-          <h3>IIT(ISM) DHANBAD</h3>
+          <h2 style={{
+            marginLeft: '20px',
+            fontWeight: '1000',
+            fontSize: '30px'
+          }}>Placements, IIT(ISM) DHANBAD</h2>
         </Box>
        
         {/* <NavbarLinksBox>
