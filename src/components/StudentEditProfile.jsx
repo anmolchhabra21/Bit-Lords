@@ -5,13 +5,30 @@ import {
 } from "@mui/material";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
 
 const StudentEditProfile = () => {
-  const handleSubmit = (e)=>{
+  const user = auth.currentUser;
+  const handleSubmit = async(e)=>{
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    console.log("Hello", data);
+    console.log("Hello", data.get("domains"));
+    try {
+      await setDoc(doc(db, "students", user.uid), {
+        name: data.get("name"),
+        rollNo: data.get("rollNo"),
+        branch: data.get("radiobtn"),
+        cgpa: data.get("CGPA"),
+        resumeLink: data.get("Resume")
+        // name: "chumitya",
+      }, {merge: true});
+      console.log("Document written id");
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   }
+  
   return (
     <>
     <Navbar/>
@@ -34,8 +51,8 @@ const StudentEditProfile = () => {
           <label>Branch </label>
           <input className={styles.Input}
             type="text"
-            name="Branch"
-            placeholder="Enter the name of the Branch"
+            name="rollNo"
+            placeholder="Enter your university Roll no. Here"
             required
           />
           <br />
@@ -95,7 +112,7 @@ const StudentEditProfile = () => {
             <option value="Finance">Finance</option>
           </select>
         </div>
-        <Button variant="contained" type="submit">Submit</Button>
+        <Button  variant="contained" type="submit">Submit</Button>
       </form>
     </div>
     </div>
