@@ -1,5 +1,5 @@
 import Home from './components/Home'
-import JobDetails from './components/Job-Details/JobDetails';
+import JobDetails from './components/job-details/JobDetails';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,6 +10,7 @@ import SignUp from './components/signup';
 import Hero from './components/FrontPage/Hero';
 import CompanyDash from './components/CompanyDash/CompanyDash';
 import StuEditProfile from './components/StudentEditProfile'
+import StudentEditProfile from './components/StudentEditProfile';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: '/student/profile',
     element: <StuEditProfile />
+  },
+  {
+    path: '/student/edit',
+    element: <StudentEditProfile />
   }
 ]);
 

@@ -1,6 +1,6 @@
 import React from "react";
 import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg"
-import { FaBriefcase, FaAngleDoubleRight } from "react-icons/fa";
+import { FaAngleDoubleRight } from "react-icons/fa";
 import "./JobDetails.css"
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
