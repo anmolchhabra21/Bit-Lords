@@ -8,6 +8,26 @@ import Navbar from "./Navbar";
 import CompanyAuthSecurity from "./Company/CompanyAuthSecurity";
 
 const AddJob = () => {
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    console.log("Hello", data.get("domains"));
+    try {
+      await setDoc(doc(db, "students", user.uid), {
+        name: data.get("name"),
+        rollNo: data.get("rollNo"),
+        branch: data.get("radiobtn"),
+        cgpa: data.get("CGPA"),
+        resumeLink: data.get("Resume")
+        // name: "chumitya",
+      }, {merge: true});
+      console.log("Document written id");
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
   return (
     <>
     <Navbar/>
@@ -16,7 +36,7 @@ const AddJob = () => {
     <div className={styles.container}>
       <h2>Add a new Job</h2>
       <br />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles.AddJob}>
           <label>Name </label>
           <input className={styles.Input}

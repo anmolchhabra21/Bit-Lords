@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 import Feed from './Home/Feed'
 import SideBar from './Sidebar'
 import RightBar from './Home/Rightbar'
-import Profile from '../components/StudentProfile'
+import Profile from '../components/StudentDashBoard'
 
 
 const Home = () => {
