@@ -46,7 +46,9 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    createUserWithEmailAndPassword(auth, data.get('email'), data.get('password'))
+    if(data.get('email').includes(`@iitism.ac.in`)){
+
+      createUserWithEmailAndPassword(auth, data.get('email'), data.get('password'))
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -60,9 +62,13 @@ export default function SignUp() {
         const errorMessage = error.message;
         alert(error.message);
       });
+    }
+    else{
+      alert("SignIn with IITISM email Only");
+    };
+      
 
-
-    // console.log({
+      // console.log({
     //   email: data.get('email'),
     //   password: data.get('password'),
     // });

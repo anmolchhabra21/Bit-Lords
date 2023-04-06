@@ -5,16 +5,41 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logoImg from "../media/logo.png";
 import { Container } from "@mui/system";
 import CustomButton from "./CustomButton";
+import { useNavigate } from "react-router-dom";
 import {
   Drawer,
   styled,
 } from "@mui/material";
 import { useState } from "react";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export const Navbar = () => {
+
+  const navigate = useNavigate();
   const [mobileMenu, setMobileMenu] = useState({
     left: false,
   });
+
+  const provider = new GoogleAuthProvider();
+
+const recruiterLogin = () => {
+  console.log("Recruiter login");
+  signInWithRedirect(auth, provider)
+  .then((result) => {
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    alert(error.message);
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+}
+
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -145,12 +170,12 @@ export const Navbar = () => {
           color="#fff"
           buttonText="Register"
         /> */}
-                <CustomButton
+                <CustomButton onClick={()=>{navigate('/signin')}}
           backgroundColor="#0F1B4C"
           color="#fff"
           buttonText="Student"
         />
-                <CustomButton
+                <CustomButton onClick={()=>{console.log("hihi")}}
           backgroundColor="#0F1B4C"
           color="#fff"
           buttonText="Recruter"
