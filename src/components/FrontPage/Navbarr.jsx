@@ -6,6 +6,7 @@ import logoImg from "../media/logo.png";
 import { Container } from "@mui/system";
 import CustomButton from "./CustomButton";
 import {
+  Button,
   Drawer,
   styled,
 } from "@mui/material";
@@ -145,10 +146,17 @@ export const Navbar = () => {
           color="#fff"
           buttonText="Register"
         /> */}
-                <CustomButton
+        <Button onClick={()=>{console.log("running1")}} backgroundColor="#0F1B4C"
+           variant="contained">Students</Button>
+        <Button onClick={()=>{console.log("running2")}} backgroundColor="#0F1B4C"
+           variant="contained">Recruter</Button>
+        <Button onClick={()=>{console.log("running3")}} backgroundColor="#0F1B4C"
+           variant="contained">SCPT</Button>
+                {/* <CustomButton
+          onClick={()=>console.log("Hello")}
           backgroundColor="#0F1B4C"
           color="#fff"
-          buttonText="Student"
+          buttonText="Students"
         />
                 <CustomButton
           backgroundColor="#0F1B4C"
@@ -159,7 +167,7 @@ export const Navbar = () => {
           backgroundColor="#0F1B4C"
           color="#fff"
           buttonText="SCPT"
-        />
+        /> */}
 
       </Box>
     </NavbarContainer>
