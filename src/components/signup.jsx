@@ -16,13 +16,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import '../css/signin.module.css'
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+      CDC IIT(ISM) Dhanbad
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -69,7 +70,7 @@ export default function SignUp() {
       });
     }
     else{
-      alert("SignUp with IIT ISM email Only");
+      alert("SignUp Using IIT(ISM) Dhanbad Email Only");
     };
       
 
@@ -95,7 +96,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Sign Up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>

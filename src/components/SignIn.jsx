@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import "../css/signin.module.css";
 
 function Copyright(props) {
   return (
@@ -26,8 +27,8 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        CDC IIT(ISM) Dhanbad
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -40,44 +41,37 @@ const theme = createTheme();
 export default function SignIn() {
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    
     onAuthStateChanged(auth, (user) => {
       if (user) {
         navigate("/student");
       }
     });
-  
-  }, [])
-  
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    if(data.get("email").includes("@iitism.ac.in")){
-
-      
+    if (data.get("email").includes("@iitism.ac.in")) {
       signInWithEmailAndPassword(auth, data.get("email"), data.get("password"))
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate("/student");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-      
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          navigate("/student");
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+
       // console.log({
-        //   email: data.get('email'),
-        //   password: data.get('password'),
-        // });
-      }
-      else{
-        alert("SignIn with IIT ISM email Only");
-      }
+      //   email: data.get('email'),
+      //   password: data.get('password'),
+      // });
+    } else {
+      alert("SignIn Using IIT(ISM) Dhanbad Email Only");
+    }
   };
 
   return (
@@ -85,18 +79,27 @@ export default function SignIn() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
+          className="FormWrapper"
           sx={{
             marginTop: 8,
+            paddingTop: 2,
+            paddingRight: 3,
+            // paddingBottom: 2,
+            paddingLeft: 3,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: 'rgba(255,255,255,0.8)',
+            // opacity: '0.8'
+            // backgroundColor: "#f7b2e7"
+            // backdropFilter: "blur(2px)",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign In
           </Typography>
           <Box
             component="form"
@@ -138,7 +141,9 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" style={{
+                  
+                }}>
                   Forgot password?
                 </Link>
               </Grid>
@@ -149,8 +154,10 @@ export default function SignIn() {
               </Grid>
             </Grid>
           </Box>
+          <Copyright sx={{ mt: 2, mb: 0 }} />
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+
+        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
   );
