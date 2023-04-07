@@ -60,12 +60,12 @@ const AddJob = () => {
               minCGPA: data.get("cgpa"),
               CSE: data.get("CSE"),
               ECE: data.get("ECE"),
-              MnC: data.get("CSE"),
-              EE: data.get("ECE"),
-              Mech: data.get("CSE"),
-              Civil: data.get("ECE"),
-              Petro: data.get("CSE"),
-              Mining: data.get("ECE"),
+              MnC: data.get("MnC"),
+              EE: data.get("EE"),
+              Mech: data.get("Mech"),
+              Civil: data.get("Civil"),
+              Petro: data.get("Petro"),
+              Mining: data.get("Mining"),
               imageURL: url
               // name: "chumitya",
             }, {merge: true});
