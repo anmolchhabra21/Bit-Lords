@@ -54,10 +54,10 @@ const AddJob = () => {
             await setDoc(doc(db, "companies", userID), {
               companyName: data.get("name"),
               position: data.get("position"),
-              salary: data.get("salary"),
+              salary: parseFloat(data.get("salary")),
               description: data.get("description"),
               domain: data.get("domains"),
-              minCGPA: data.get("cgpa"),
+              minCGPA: parseFloat(data.get("cgpa")),
               CSE: data.get("CSE"),
               ECE: data.get("ECE"),
               MnC: data.get("MnC"),
@@ -67,7 +67,6 @@ const AddJob = () => {
               Petro: data.get("Petro"),
               Mining: data.get("Mining"),
               imageURL: url
-              // name: "chumitya",
             }, {merge: true});
             console.log("Document written id");
           } catch (e) {
@@ -136,6 +135,7 @@ const AddJob = () => {
                 className={styles.Input}
                 type="number"
                 name="salary"
+                step="0.01"
                 placeholder="Offered Salary in LPA"
               />
             </div>
@@ -163,6 +163,7 @@ const AddJob = () => {
                 className={styles.Input}
                 type="number"
                 name="cgpa"
+                step="0.01"
                 placeholder="Minimum CG Criteria"
               />
             </div>
