@@ -55,6 +55,7 @@ const StudentEditProfile = () => {
             setSelectval(doc.data().type)
           }
           // set
+          console.log("reloading")
           // console.log("Current data: ", doc.data());
         });
       }
