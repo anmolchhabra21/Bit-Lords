@@ -3,6 +3,7 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 
 const StudentCard = (props) => {
+  // console.log("props", props)
   return (
     <AppBar sx={{borderRadius:"10px", margin:"1.5rem 0", color:"black", backgroundColor:"white"}} position="static">
         <Toolbar >
