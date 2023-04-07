@@ -1,26 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../css/AddJob.module.css";
 import {
   Button
 } from "@mui/material";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
+
 const StudentEditProfile = () => {
-  const user = auth.currentUser;
+  const [newu, setNewu] = useState(null);
+  const [selectval, setSelectval] = useState("IT");
+  const [uname, setuName] = useState("");
+  const [uroll, setuRoll] = useState("");
+  const [ucgpa, setuCgpa] = useState("");
+  const [uresm, setuResm] = useState("");
+
+  // const getUser = async() => {
+    
+  //   console.log("hihi",user.uid);
+  // }
+
+  // auth.onAuthStateChanged(function(user){
+  //   if(user){
+  //     const userID = user.uid;
+  //   }
+  //   else{
+    
+  //   }
+  // })
+  // console.log("here",userID);
+
+  // var promise = new Promise((resolve, reject)=>{
+    
+  // })
+  // promise.then((user)=>{
+  //   console.log("then is here", user.uid);
+  // }).catch(()=>{
+  //   console.log("catched the rejected"); 
+  // })
+
+  useEffect(()=>{
+    auth.onAuthStateChanged(function(user) {
+      if (user) {
+        setNewu(user.uid);
+        const unsub = onSnapshot(doc(db, "student", user.uid), (doc) => {
+          setuName(doc.data().name);
+          setuCgpa(doc.data().cgpa);
+          setuResm(doc.data().resumeLink);
+          setuRoll(doc.data().rollNo);
+          setSelectval(doc.data().type)
+          // set
+          // console.log("Current data: ", doc.data());
+        });
+      }
+    });
+  },[])
+  
+  const handleSelectChange = (e)=>{
+    setSelectval(e.target.value);
+  }
+
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     console.log("Hello", data.get("domains"));
     try {
-      await setDoc(doc(db, "students", user.uid), {
+      await setDoc(doc(db, "student", newu), {
         name: data.get("name"),
         rollNo: data.get("rollNo"),
-        branch: data.get("radiobtn"),
         cgpa: data.get("CGPA"),
-        resumeLink: data.get("Resume")
+        resumeLink: data.get("Resume"),
+        branch: data.get("domains")
         // name: "chumitya",
       }, {merge: true});
       console.log("Document written id");
@@ -28,6 +80,7 @@ const StudentEditProfile = () => {
       console.error("Error adding document: ", e);
     }
   }
+
   
   return (
     <>
@@ -43,21 +96,25 @@ const StudentEditProfile = () => {
           <input className={styles.Input}
             type="text"
             name="name"
+            value={uname}
+            onChange={(e)=>setuName(e.target.value)}
             placeholder="Enter the name of the Student"
             required
-          />
+            />
         </div>
         <div className={styles.AddJob}>
-          <label>Branch </label>
+          <label>Roll No </label>
           <input className={styles.Input}
             type="text"
             name="rollNo"
+            value={uroll}
+            onChange={(e)=>setuRoll(e.target.value)}
             placeholder="Enter your university Roll no. Here"
             required
-          />
+            />
           <br />
         </div>
-        <div className={styles.AddJob}>
+        {/* <div className={styles.AddJob}>
           <label className="title">Your Department</label>
 
           <span>
@@ -85,31 +142,42 @@ const StudentEditProfile = () => {
             <input className={styles.Input} type="radio" name="radiobtn" value="Mining" />
             <label className="short">Mining </label>
           </span>
-        </div>
+        </div> */}
         <div className={styles.AddJob}>
           <label>CGPA </label>
           <input className={styles.Input}
             type="number"
             name="CGPA"
+            value = {ucgpa}
+            onChange={(e)=>setuCgpa(e.target.value)}
             placeholder="Latest Semester CGPA"
             required
-          />
+            />
         </div>
         <div className={styles.AddJob}>
           <label>Resume Link </label>
           <input className={styles.Input}
             type="text"
             name="Resume"
+            value={uresm}
+            onChange={(e)=>setuResm(e.target.value)}
             placeholder="Enter latest Resume link online/Drive Link"
             required
-          />
+            // onChange={(e)=>setuResm(e.target.value)}
+            />
         </div>
         <div className={styles.AddJob}>
           <label>Type </label>{" "}
-          <select id="type" name="domains">
-            <option value="IT">IT</option>
-            <option value="Core">Core</option>
-            <option value="Finance">Finance</option>
+          <select id="type" value={selectval} onChange={handleSelectChange} name="domains">
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="MnC">MnC</option>
+            <option value="EE">EE</option>
+            <option value="Mech">Mech</option>
+            <option value="Civil">Civil</option>
+            <option value="Petro">Petro</option>
+            <option value="Mining">Mining</option>
+            {/* {console.log('rerendering', selectval)} */}
           </select>
         </div>
         <Button  variant="contained" type="submit">Submit</Button>
