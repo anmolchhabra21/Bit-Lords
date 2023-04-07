@@ -79,6 +79,7 @@ const StudentEditProfile = () => {
         // name: "chumitya",
       }, {merge: true});
       console.log("Document written id");
+      alert("New User Created!!");
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -91,7 +92,7 @@ const StudentEditProfile = () => {
     <div style={{display:"flex", height: "100vh"}}>
     <Sidebar/>
     <div className={styles.container}>
-      <h2>Add a new Job</h2>
+      <h2>Student Edit Profile</h2>
       <br />
       <form  onSubmit={handleSubmit}>
         <div className={styles.AddJob}>
