@@ -33,6 +33,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const StudentProfile = () => {
   let username = null;
+
   const [filterData, setFilterData] = useState([]);
 
   let dataArr = [];
@@ -65,10 +66,19 @@ const StudentProfile = () => {
       // doc.data() is never undefined for query doc snapshots
       // setFilterData(doc.data());
       // fetdata = doc.data();
-      dataArr.push(doc.data());
+      // console.log("doc ",doc.id);
+      // doc.data().id = doc.id;
+      let valu = doc.data();
+      valu["compid"] = doc.id;
+      valu["studid"] = username.uid;
+      dataArr.push(valu);
+      // console.log("supersh", valu)
+      // dataArr.push(doc.id);
+      // console.log(doc.data())
+      
     });
     setFilterData(dataArr);
-    console.log("there", dataArr);
+    // console.log("there", dataArr);
   };
   // setFilterData(dataArr);
   console.log(filterData);
@@ -118,6 +128,8 @@ const StudentProfile = () => {
             salary={data.salary}
             domain={data.domain}
             imageURL={data.imageURL}
+            companyid = {data.compid}
+            studentid = {data.studid}
           />
           ))
         : <h2>No Eligible Company Exists</h2>}
