@@ -15,12 +15,17 @@ import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
 import { Mail, Notifications } from "@mui/icons-material";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // const styledToolbar = styled(Toolbar)({
 //   display:"flex",
 //   justifyContent: "space-between",
 // });
+const user = auth.currentUser;
+let isStudent = false;
+
+// Check Whether the logged in person is Student or Not
+
 
 const sOut = ()=> {
   signOut(auth).then(() => {
@@ -60,6 +65,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [Name, setName] = useState("");
+  const [isStudent, setIsStudent] = useState(false);
 
 
   useEffect(() => {
@@ -67,6 +73,12 @@ const Navbar = () => {
       if (user) {
         const uid = user.uid;
         setName(user.displayName);
+        if(user.email.includes(`@iitism.ac.in`)){
+          setIsStudent(true);
+        }
+        else{
+          setIsStudent(false);
+        }
         // ...
       } else {
         // User is signed out
@@ -137,7 +149,8 @@ const Navbar = () => {
           horizontal: "right",
         }}
       >
-        <MenuItem>Profile</MenuItem>
+        
+        {isStudent ?  <Link to={'/student/profile'}> <MenuItem> Profile</MenuItem> </Link> : null}
         <MenuItem>My account</MenuItem>
         <MenuItem onClick={sOut}>Logout</MenuItem>
       </Menu>
