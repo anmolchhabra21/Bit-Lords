@@ -1,6 +1,6 @@
 .imageWrapper {
   height: 72%;
-  transition: all 2s ease;
+  transition: all 3s ease;
 }
 
 .imageWrapper:hover {
@@ -13,7 +13,7 @@
   object-position: center top;
   width: 100%;
   height: 100%;
-  transition: all 2s ease;
+  transition: all 3s ease;
 }
 
 .preventTextSelection {
