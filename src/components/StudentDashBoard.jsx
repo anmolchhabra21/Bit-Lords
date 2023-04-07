@@ -25,7 +25,7 @@ const StudentProfile = () => {
       </Grid>
       <div style={{width:"90%", margin:"auto",backgroundColor : "#e7ebf0", padding:"1rem", borderRadius:"10px"}}>
       <StudentCard companyName="Google" salary="21 lpa" domain ="IT" imageURL="https://picsum.photos/200"/>
-      <StudentCard companyName="Microsoft" salary="26 lpa" domain ="IT"/>
+      <StudentCard companyName="Microsoft" salary="26 lpa" domain ="IT" imageURL="https://picsum.photos/200"/>
       
     {/* </Box> */}
       </div>
