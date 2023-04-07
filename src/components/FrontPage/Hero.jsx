@@ -3,8 +3,8 @@ import { Container } from "@mui/system";
 import React from "react";
 import Navbar from "./Navbarr";
 import ReactTypical from "./ReactTypical";
-
-import heroImg from "../media/hero_illustration.png";
+import heroImg from "../media/ISM_IMAGE.jpg";
+import "../../css/Hero.css"
 
 const Hero = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
@@ -36,6 +36,7 @@ const Hero = () => {
         <CustomBox>
           <Box sx={{ flex: "1" }}>
             <Typography
+            className="preventTextSelection"
               variant="body2"
               sx={{
                 fontSize: "20px",
@@ -48,15 +49,17 @@ const Hero = () => {
               Welcome to IIT(ISM) Dhanbad
             </Typography>
 
-            <div style={{
-              height: '180px'
-            }}>
-              <Title variant="h1">
+            <div
+              style={{
+                height: "180px",
+              }}
+            >
+              <Title variant="h1" className="preventTextSelection">
                 <ReactTypical />
               </Title>
             </div>
 
-            <div>
+            <div className="preventTextSelection">
               <Typography
                 variant="body2"
                 sx={{ fontSize: "18px", color: "#5A6473", my: 4, mt: 0 }}
@@ -78,11 +81,11 @@ const Hero = () => {
             /> */}
           </Box>
 
-          <Box sx={{ flex: "1.25" }}>
+          <Box className="imageWrapper" sx={{ flex: "1.25" }}>
             <img
+            className="ISM_IMAGE"
               src={heroImg}
               alt="heroImg"
-              style={{ maxWidth: "100vh", marginBottom: "2rem" }}
             />
           </Box>
         </CustomBox>

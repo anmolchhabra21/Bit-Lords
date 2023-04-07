@@ -1,4 +1,3 @@
-import { fontSize } from "@mui/system";
 import React from "react";
 import Typical from "react-typical";
 const ReactTypical = () => {
