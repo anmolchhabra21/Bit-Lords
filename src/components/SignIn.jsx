@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import "../css/signin.module.css";
+import aman from "../css/signin.module.css";
 
 function Copyright(props) {
   return (
@@ -75,24 +75,27 @@ export default function SignIn() {
   };
 
   return (
+      <div className={aman.FormWrapper} style={{width:"100vw", backgroundColor: 'rgba(255,255,255,0.8)', minHeight:"100vh", position:"absolute"}}>
     <ThemeProvider theme={theme}>
+        
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
-          className="FormWrapper"
+          
           sx={{
             marginTop: 8,
             paddingTop: 2,
             paddingRight: 3,
-            // paddingBottom: 2,
+            paddingBottom: 2,
             paddingLeft: 3,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            backgroundColor: 'rgba(255,255,255,0.8)',
-            // opacity: '0.8'
-            // backgroundColor: "#f7b2e7"
-            // backdropFilter: "blur(2px)",
+
+            opacity: '0.8',
+            backgroundColor: "white",
+            backdropFilter: "blur(2px)",
+            borderRadius: "18px"
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -160,5 +163,6 @@ export default function SignIn() {
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
+      </div>
   );
 }

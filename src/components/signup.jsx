@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import '../css/signin.module.css'
+import aman from '../css/signin.module.css'
 
 function Copyright(props) {
   return (
@@ -81,15 +81,25 @@ export default function SignUp() {
   };
 
   return (
+    <div className={aman.FormWrapper} style={{width:"100vw", backgroundColor: 'rgba(255,255,255,0.8)', minHeight:"100vh", position:"absolute"}}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
+            paddingTop: 2,
+            paddingRight: 3,
+            paddingBottom: 2,
+            paddingLeft: 3,
+            // marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            opacity: '0.8',
+            backgroundColor: "white",
+            backdropFilter: "blur(2px)",
+            borderRadius: "18px"
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -109,7 +119,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                />
+                  />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -119,7 +129,7 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                />
+                  />
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -129,7 +139,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                />
+                  />
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -140,7 +150,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                />
+                  />
               </Grid>
             </Grid>
             <Button
@@ -163,5 +173,6 @@ export default function SignUp() {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
+    </div>
   );
 }
