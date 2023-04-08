@@ -16,6 +16,7 @@ const CompanyAuthSecurity = () => {
                   }).catch((error) => {
                     // An error happened.
                   });
+                  
             }
             
           }
