@@ -36,7 +36,7 @@ const CompanyDash = () => {
       </Card>
 
       <Card sx={{ maxWidth: 345 }} className="cd-card">
-        <CardActionArea>
+        <CardActionArea onClick={()=>{navigate('/company/table')}}>
           <CardMedia
             component="img"
             height="140"
@@ -56,7 +56,7 @@ const CompanyDash = () => {
       </Card>
 
       <Card sx={{ maxWidth: 345 }} className="cd-card">
-        <CardActionArea>
+        <CardActionArea onClick={()=>{navigate('/company/notification')}}>
           <CardMedia
             component="img"
             height="140"
