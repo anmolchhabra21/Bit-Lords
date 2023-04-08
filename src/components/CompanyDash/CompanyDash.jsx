@@ -14,10 +14,10 @@ const CompanyDash = () => {
   return (
     <>
     <Navbar/>
-    <h2 className="cd-head">Welcome! Thanks for collaborating with us for your upcomming Placemnt Drive.</h2>
+    <h2 className="cd-head">Welcome! Thanks for collaborating with us for your upcoming Placement Drive.</h2>
     <div className="cd-container">
       <Card sx={{ maxWidth: 345 }} className="cd-card">
-        <CardActionArea onClick={()=>{navigate('/newjob')}}>
+        <CardActionArea onClick={()=>{navigate('/company/newjob')}}>
           <CardMedia
             component="img"
             height="140"

@@ -66,7 +66,7 @@ const StudentProfile = () => {
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       let valu = doc.data();
-      valu["compid"] = doc.id;
+      valu["jobid"] = doc.id;
       valu["studid"] = username.uid;
       let applied = false;
       if(appliedFor){
@@ -116,12 +116,13 @@ const StudentProfile = () => {
             salary={data.salary}
             domain={data.domain}
             imageURL={data.imageURL}
-            companyid = {data.compid}
+            jobid = {data.jobid}
             studentid = {data.studid}
             applied = {data.applied}
+            position = {data.position}
           />
           ))
-        : <h2>No Eligible Company Exists</h2>}
+        : <h2>No Eligible Job Exists</h2>}
         {/* <StudentCard
           companyName="Google"
           salary="21 lpa"

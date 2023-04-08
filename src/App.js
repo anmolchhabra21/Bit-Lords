@@ -6,9 +6,10 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/signup";
 import Hero from "./components/FrontPage/Hero";
 import CompanyDash from "./components/CompanyDash/CompanyDash";
-import StuDashBoard from "./components/StudentDashBoard";
 import StudentEditProfile from "./components/StudentEditProfile";
 import Notification from "./components/notification/Notification";
+import StudentNotification from "./components/notification/StudentNotification";
+import Test from "./components/Test"
 import Table from "./components/Table/Table";
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
   },
   {
-    path: "/newjob",
+    path: "/company/newjob",
     element: <AddJob />,
   },
   {
@@ -42,12 +43,16 @@ const router = createBrowserRouter([
     element: <CompanyDash />,
   },
   {
-    path: "/student/edit",
+    path: "/student/profile",
     element: <StudentEditProfile />,
   },
   {
     path: "/company/notification",
     element: <Notification />,
+  },
+  {
+    path: "/student/notification",
+    element: <StudentNotification/>
   },
   {
     path: "/company/table",
@@ -57,6 +62,10 @@ const router = createBrowserRouter([
   {
     path:'/organization/:id',
     element: <JobDetails/>
+  },
+  {
+    path:'/test',
+    element: <Test/>
   }
   
 ]);
