@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form {
+  width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: white;
+  opacity: 0.8;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 0px;
+  border-radius: 10px;
+}
+
+.heading {
+  margin-bottom: 0px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+  color: #222;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.heading:after,
+.heading:before {
+  content: " ";
+  display: block;
+  /* border-bottom: 1px solid #6466e0; */
+  /* border-top: 1px solid #6466e0; */
+  height: 5px;
+  background-color: #f8f8f8;
+}
+
+.input {
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid #7ca2d6;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.input:focus {
+  border: 2px solid #6466e0;
+}
+
+.nameRole {
+  display: flex;
+  flex-direction: row;
+}
+
+.textArea {
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+}
+
+.sendButton {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  width: 100%;
+  background: #7ca2d6;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: 6px;
+  font-weight: 700;
+}
+.sendButton:hover {
+  transform: translate(0, -8px);
+  transition: transform 330ms ease-in-out;
+
+  background: #6466e0;
+}
+
+.formWrapper {
+  background-image: url("https://www.iitism.ac.in/campuslife/images/acom.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.heading {
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+  user-select: none;
+}
