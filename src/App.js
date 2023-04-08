@@ -8,6 +8,7 @@ import Hero from "./components/FrontPage/Hero";
 import CompanyDash from "./components/CompanyDash/CompanyDash";
 import StudentEditProfile from "./components/StudentEditProfile";
 import Notification from "./components/notification/Notification";
+import StudentNotification from "./components/notification/StudentNotification";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/company/notification",
     element: <Notification />,
+  },
+  {
+    path: "/student/notification",
+    element: <StudentNotification/>
   },
   {
     path:'/organization/:id',
