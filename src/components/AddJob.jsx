@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import { storage, auth, db } from "../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, addDoc, collection } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +47,9 @@ const AddJob = () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async(url) => {
           // imgURL = url;
           try {
-            await setDoc(doc(db, "companies", userID), {
+            let user = auth.currentUser;
+            const docRef = await addDoc(collection(db, "companies"), {
+              compID: user.uid,
               companyName: data.get("name"),
               position: data.get("position"),
               salary: parseFloat(data.get("salary")),
@@ -63,7 +65,7 @@ const AddJob = () => {
               Petro: data.get("Petro"),
               Mining: data.get("Mining"),
               imageURL: url
-            }, {merge: true});
+            });
             console.log("Document written id");
             alert("Company details added!!")
             navigate('/company')

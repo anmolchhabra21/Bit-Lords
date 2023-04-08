@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <CompanyDash />,
   },
   {
-    path: "/student/edit",
+    path: "/student/profile",
     element: <StudentEditProfile />,
   },
   {
