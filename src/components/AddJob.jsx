@@ -7,16 +7,12 @@ import { storage, auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
+  const navigate = useNavigate();
   const [file, setFile] = useState("");
-  useEffect(() => {
-    onAuthStateChanged(auth, (user)=>{
-      if(user){
-      }
-    })
-    
-  }, [])
+
 
   function handleChange(event) {
     setFile(event.target.files[0]);
@@ -69,6 +65,9 @@ const AddJob = () => {
               imageURL: url
             }, {merge: true});
             console.log("Document written id");
+            alert("Company details added!!")
+            navigate('/company')
+          
           } catch (e) {
             console.error("Error adding document: ", e);
           }

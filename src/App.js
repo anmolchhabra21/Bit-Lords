@@ -6,7 +6,6 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/signup";
 import Hero from "./components/FrontPage/Hero";
 import CompanyDash from "./components/CompanyDash/CompanyDash";
-import StuDashBoard from "./components/StudentDashBoard";
 import StudentEditProfile from "./components/StudentEditProfile";
 import Notification from "./components/notification/Notification";
 
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
   },
   {
-    path: "/newjob",
+    path: "/company/newjob",
     element: <AddJob />,
   },
   {
