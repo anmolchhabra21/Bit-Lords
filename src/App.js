@@ -46,6 +46,7 @@ const router = createBrowserRouter([
     path: "/student/profile",
     element: <StudentEditProfile />,
   },
+  
   {
     path: "/company/notification",
     element: <Notification />,
