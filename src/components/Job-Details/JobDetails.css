@@ -136,3 +136,11 @@
   transition: transform 330ms ease-in-out;
   background-color: #21e065;
 }
+
+
+
+@media only screen and (min-width: 600px)
+ {
+
+    max-width: 50%;
+}
