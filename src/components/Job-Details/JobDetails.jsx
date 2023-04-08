@@ -1,9 +1,12 @@
-import React from "react";
-import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg"
+import React, { useEffect, useState } from "react";
+import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg";
 import { FaAngleDoubleRight } from "react-icons/fa";
-import "./JobDetails.css"
+import "./JobDetails.css";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 // Company Object
 const companyDetails = {
@@ -30,7 +33,7 @@ const companyDetails = {
     ],
     basicQualifications: [
       "Currently enrolled in or will receive a Bachelor’s or Master’s Degree with a graduation date between September 2023 and December 2024.",
-      "A mininum of 7.00 CGPA aggregate upto last semester.",
+      // "A mininum of 7.00 CGPA aggregate upto last semester.",
       "Possess an extremely sound understanding of areas in the basic areas of Computer Science such as Algorithms, Data Structures, Object Oriented Design, Databases.",
       "Be able to write Amazon quality code in an object oriented language - preferably in C/C++/Java in a Linux environment.",
       "Candidate must have good written and oral communication skills, be a fast learner and have the ability to adapt quickly to a fast-paced development environment.",
@@ -55,121 +58,128 @@ const companyDetails = {
 };
 
 const JobDetails = () => {
+  const [compdata, setCompdata] = useState([]);
+  const { id } = useParams();
+  console.log(id);
+
+  const getCompData = async () => {
+    const docRef = doc(db, "companies", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // console.log("Document data:", docSnap.data());
+      setCompdata(docSnap.data());
+      console.log("compdata ", compdata);
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+
+  useEffect(() => {
+    getCompData();
+  }, []);
+
   return (
     <>
-    <Navbar/>
-    <div style={{display:"flex"}}>
-    <Sidebar/>
-    <div className="companyWrapper">
-      <div className="companyHead">
-        <div className="nameRole">
-          <span>
-            <img src={companyDetails.logo} alt="" />
-          </span>
-          <div className="companyHeadLeft">
-            <div>{companyDetails.roleOffered}</div>
-            <span>{companyDetails.companyName}</span>
-            <h3 className="CTC">₹{companyDetails.CTC} LPA</h3>
+      <Navbar />
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <div className="companyWrapper">
+          <div className="companyHead">
+            <div className="nameRole">
+              <span>
+                <img src={compdata.imageURL} alt="" />
+              </span>
+              <div className="companyHeadLeft">
+                <div>{compdata.companyName}</div>
+                <span>{compdata.position}</span>
+                <h3 className="CTC">₹{compdata.salary} LPA</h3>
+              </div>
+            </div>
+
+            <div className="companyHeadRight">
+              <button className="applyBtn">Apply</button>
+            </div>
+          </div>
+
+          <div className="deadLine">
+            <ul>
+              <li>
+                <h4 className="applicationOpen">Application are open now!</h4>
+              </li>
+            </ul>
+          </div>
+
+          {/* <div className="jobLocations">
+            <div className="jobLocationsHeading">
+              <h2>Locations</h2>
+            </div>
+            <ul>
+              {companyDetails.companyDesc.locationsHiringFor.map((location) => (
+                <li>{location}</li>
+              ))}
+            </ul>
+          </div> */}
+
+          <div className="jobDesc">
+            <div className="jobDescHeading">
+              <h2>Job Description</h2>
+            </div>
+
+            <div className="desc">
+              <h2>
+                <FaAngleDoubleRight />
+              </h2>
+              <h3>Your Role And Responsibilities</h3>
+            </div>
+            <p>{compdata.description}</p>
+
+            <div className="desc">
+              <h2>
+                <FaAngleDoubleRight />
+              </h2>
+              <h3>Basic Qualifications</h3>
+            </div>
+            <ul>
+              <li>
+                Following are the eligible branches for this role, However all
+                branches are welcomed to apply.
+              </li>
+              <b>
+                <ul>{compdata["CSE"]}</ul>
+                <ul>{compdata["Civil"]}</ul>
+                <ul>{compdata["ECE"]}</ul>
+                <ul>{compdata["MnC"]}</ul>
+                <ul>{compdata["EE"]}</ul>
+                <ul>{compdata["Mech"]}</ul>
+                <ul>{compdata["Mining"]}</ul>
+                <ul>{compdata["Petro"]}</ul>
+              <li>A mininum of <u>{compdata.minCGPA}</u> CGPA aggregate upto last semester.</li>
+              </b>
+
+              {companyDetails.companyDesc.basicQualifications.map((basicQ) => (
+                <li>{basicQ}</li>
+              ))}
+            </ul>
+
+            <div className="desc">
+              <h2>
+                <FaAngleDoubleRight />
+              </h2>
+              <h3>Preferred Qualifications</h3>
+            </div>
+            <ul>
+              {companyDetails.companyDesc.preferredQualifications.map(
+                (preferredQ) => (
+                  <li>{preferredQ}</li>
+                )
+              )}
+            </ul>
+            <br />
           </div>
         </div>
-
-        <div className="companyHeadRight">
-          <button className="applyBtn">Apply</button>
-        </div>
       </div>
-
-      <div className="deadLine">
-        <div className="deadLineHeading">
-          <h2>Application Deadline</h2>
-        </div>
-        <ul>
-          <li>
-            <h4 className="applicationOpen">Application are open now!</h4>
-          </li>
-          <li>
-            <h4 className="lastDate">
-              Last Date To Apply :{" "}
-              {companyDetails.companyDesc.applicationDeadline.lastDate}
-            </h4>
-          </li>
-          <li>
-            <h4>
-              We encourage you to apply as soon as possible beacause our team
-              will shortlist the candidates on rolling basis.
-            </h4>
-          </li>
-        </ul>
-      </div>
-
-      <div className="jobLocations">
-        <div className="jobLocationsHeading">
-          <h2>Locations</h2>
-        </div>
-        <ul>
-          {companyDetails.companyDesc.locationsHiringFor.map((location) => (
-            <li>{location}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="jobDesc">
-        <div className="jobDescHeading">
-          <h2>Job Description</h2>
-        </div>
-
-        <div className="desc">
-          <h2>
-            <FaAngleDoubleRight />
-          </h2>
-          <h3>Your Role And Responsibilities</h3>
-        </div>
-        <ul>
-          {companyDetails.companyDesc.rolesAndResponsibility.map(
-            (responsibility) => (
-              <li>{responsibility}</li>
-            )
-            )}
-        </ul>
-
-        <div className="desc">
-          <h2>
-            <FaAngleDoubleRight />
-          </h2>
-          <h3>Basic Qualifications</h3>
-        </div>
-        <ul>
-          <li>
-            Following are the eligible branches for this role, However all
-            branches are welcomed to apply.
-            <ul>
-              {companyDetails.companyDesc.eligibleBranches.map((branch) => (
-                <li>{branch}</li>
-                ))}
-            </ul>
-          </li>
-
-          {companyDetails.companyDesc.basicQualifications.map((basicQ) => (
-            <li>{basicQ}</li>
-            ))}
-        </ul>
-
-        <div className="desc">
-          <h2>
-            <FaAngleDoubleRight />
-          </h2>
-          <h3>Preferred Qualifications</h3>
-        </div>
-        <ul>
-          {companyDetails.companyDesc.preferredQualifications.map(
-            (preferredQ) => (
-              <li>{preferredQ}</li>
-            )
-            )}
-        </ul>
-      </div>
-
-    </div>
-    </div>
     </>
   );
 };

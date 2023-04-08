@@ -11,6 +11,7 @@ import Hero from './components/FrontPage/Hero';
 import CompanyDash from './components/CompanyDash/CompanyDash';
 import StuEditProfile from './components/StudentEditProfile'
 import StudentEditProfile from './components/StudentEditProfile';
+// import JobDetails from './components/Job-Details/JobDetails';
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,6 @@ const router = createBrowserRouter([
   {
     path: "/newjob",
     element:<AddJob/>
-  },
-  {
-    path: '/job-details',
-    element: <JobDetails/>
   },
   {
     path: '/signin',
@@ -49,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/student/edit',
     element: <StudentEditProfile />
+  },
+  {
+    path:'/organization/:id',
+    element: <JobDetails/>
   }
 ]);
 

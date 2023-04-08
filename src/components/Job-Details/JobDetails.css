@@ -1,8 +1,12 @@
+.companyWrapper{
+  max-width: 100%;
+}
 .companyHead {
-  margin: 50px 100px;
+  margin: 3rem 3rem;
   border-radius: 25px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 10px;
   justify-content: space-around;
 }
@@ -14,12 +18,13 @@
 
 .nameRole {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-right: auto;
 }
 
 .nameRole img {
-  width: 250px;
+  width: 50%;
   border-radius: 10px;
   margin-left: 0px;
 }
@@ -135,4 +140,12 @@
   transform: scale(1.04);
   transition: transform 330ms ease-in-out;
   background-color: #21e065;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .ajeebclass{
+    display: none;
+    background-color: green ;
+  }
 }

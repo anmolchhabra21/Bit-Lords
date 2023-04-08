@@ -46,9 +46,9 @@ const StudentProfile = () => {
 
     if (docSnap.exists()) {
       fetbranch = docSnap.data().branch;
-      console.log("Document data:", fetbranch);
+      // console.log("Document data:", fetbranch);
       fetcgpa = docSnap.data().cgpa;
-      console.log("Document data:", fetcgpa);
+      // console.log("Document data:", fetcgpa);
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -81,7 +81,7 @@ const StudentProfile = () => {
     // console.log("there", dataArr);
   };
   // setFilterData(dataArr);
-  console.log(filterData);
+  // console.log(filterData);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {

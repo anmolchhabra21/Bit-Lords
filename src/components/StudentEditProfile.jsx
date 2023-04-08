@@ -54,6 +54,9 @@ const StudentEditProfile = () => {
             setuRoll(doc.data().rollNo);
             setSelectval(doc.data().type)
           }
+          else{
+            console.log("Nothing to show!! please enter your details")
+          }
           // set
           console.log("reloading")
           // console.log("Current data: ", doc.data());
