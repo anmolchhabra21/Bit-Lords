@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CompanyLogo from "../../assets/Company_Logo/AMAZON_LOGO.jpg";
 import { FaAngleDoubleRight } from "react-icons/fa";
-import "./JobDetails.css";
+import aman from "./JobDetails.module.css";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 // Company Object
 const companyDetails = {
@@ -59,6 +60,7 @@ const companyDetails = {
 
 const JobDetails = () => {
   const [compdata, setCompdata] = useState([]);
+  const navigate = useNavigate();
   const { id } = useParams();
   console.log(id);
 
@@ -80,33 +82,37 @@ const JobDetails = () => {
     getCompData();
   }, []);
 
+  const applyHandler = () => {
+    navigate('/student');
+  }
+
   return (
     <>
       <Navbar />
       <div style={{ display: "flex" }}>
         <Sidebar />
-        <div className="companyWrapper">
-          <div className="companyHead">
-            <div className="nameRole">
+        <div className={aman.companyWrapper}>
+          <div className={aman.companyHead}>
+            <div className={aman.nameRole}>
               <span>
-                <img src={compdata.imageURL} alt="" />
+                <img className={aman.nameRoleImage} src={compdata.imageURL} alt="" />
               </span>
-              <div className="companyHeadLeft">
+              <div className={aman.companyHeadLeft}>
                 <div>{compdata.companyName}</div>
                 <span>{compdata.position}</span>
-                <h3 className="CTC">₹{compdata.salary} LPA</h3>
+                <h3 className={aman.CTC}>₹{compdata.salary} LPA</h3>
               </div>
             </div>
 
-            <div className="companyHeadRight">
-              <button className="applyBtn">Apply</button>
+            <div className={aman.companyHeadRight}>
+              <button className={aman.applyBtn} onClick={applyHandler} >Apply</button>
             </div>
           </div>
 
-          <div className="deadLine">
+          <div className={aman.deadLine}>
             <ul>
               <li>
-                <h4 className="applicationOpen">Application are open now!</h4>
+                <h4 className={aman.applicationOpen}>Application are open now!</h4>
               </li>
             </ul>
           </div>
@@ -122,12 +128,12 @@ const JobDetails = () => {
             </ul>
           </div> */}
 
-          <div className="jobDesc">
-            <div className="jobDescHeading">
+          <div className={aman.jobDesc}>
+            <div className={aman.jobDescHeading}>
               <h2>Job Description</h2>
             </div>
 
-            <div className="desc">
+            <div className={aman.desc}>
               <h2>
                 <FaAngleDoubleRight />
               </h2>
@@ -135,7 +141,7 @@ const JobDetails = () => {
             </div>
             <p>{compdata.description}</p>
 
-            <div className="desc">
+            <div className={aman.desc}>
               <h2>
                 <FaAngleDoubleRight />
               </h2>
@@ -163,7 +169,7 @@ const JobDetails = () => {
               ))}
             </ul>
 
-            <div className="desc">
+            <div className={aman.desc}>
               <h2>
                 <FaAngleDoubleRight />
               </h2>
