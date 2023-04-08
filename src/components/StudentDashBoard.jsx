@@ -92,7 +92,7 @@ const StudentProfile = () => {
   return (
     <Box height="100vh" width="100%" p={2}>
       {/* <ul>{myArr}</ul> */}
-      <Typography variant="h3"> Hi Bhai!! </Typography>
+      {/* <Typography variant="h3"> Hi Bhai!! </Typography> */}
       <Grid container justifyContent>
         {Array.from(Array(4)).map((_, index) => (
           <Grid item xs={12} sm={6} md={3} key={index} alignItems="center">

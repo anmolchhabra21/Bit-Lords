@@ -26,14 +26,15 @@ let isStudent = false;
 
 // Check Whether the logged in person is Student or Not
 
-
-const sOut = ()=> {
-  signOut(auth).then(() => {
-    // Signed Out
-  }).catch((error) => {
-    // An error happened.
-  });
-}
+const sOut = () => {
+  signOut(auth)
+    .then(() => {
+      // Signed Out
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+};
 
 const Search = styled("div")(({ theme }) => ({
   backgroundColor: "white",
@@ -67,34 +68,28 @@ const Navbar = () => {
   const [Name, setName] = useState("");
   const [isStudent, setIsStudent] = useState(false);
 
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
         setName(user.displayName);
-        if(user.email.includes(`@iitism.ac.in`)){
+        if (user.email.includes(`@iitism.ac.in`)) {
           setIsStudent(true);
-        }
-        else{
+        } else {
           setIsStudent(false);
         }
         // ...
       } else {
         // User is signed out
-        navigate('/');
+        navigate("/");
       }
     });
-    
-  
-    
-  }, [])
-  
+  }, []);
 
   // onAuthStateChanged(auth, (user) => {
   //   if (user) {
   //     // User is signed in, see docs for a list of available properties
-      
+
   //     const uid = user.uid;
   //     setName(user.displayName);
   //     // ...
@@ -103,26 +98,31 @@ const Navbar = () => {
   //   }
   // });
 
-
   return (
     <AppBar position="sticky">
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          {Name}
+          CDC Portal 
         </Typography>
         <SnippetFolderIcon sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="Search.." />
         </Search>
         <Icons>
-          <Badge badgeContent={4} color="error">
+          {/* <Badge badgeContent={4} color="error">
             <Mail />
           </Badge>
           <Badge badgeContent={4} color="error">
             <Notifications />
-          </Badge>
+          </Badge> */}
+          <Typography
+            variant="h6"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            {Name}
+          </Typography>
           <Avatar
-            sx={{ width: 30, height: 30, cursor:"pointer"}}
+            sx={{ width: 30, height: 30, cursor: "pointer" }}
             src="https://picsum.photos/200/300"
             onClick={(e) => setOpen(true)}
           />
@@ -139,7 +139,7 @@ const Navbar = () => {
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         open={open}
-        onClose={e=>setOpen(false)}
+        onClose={(e) => setOpen(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",
@@ -149,8 +149,12 @@ const Navbar = () => {
           horizontal: "right",
         }}
       >
-        
-        {isStudent ?  <Link to={'/student/profile'}> <MenuItem> Profile</MenuItem> </Link> : null}
+        {isStudent ? (
+          <Link to={"/student/profile"}>
+            {" "}
+            <MenuItem> Profile</MenuItem>{" "}
+          </Link>
+        ) : null}
         <MenuItem>My account</MenuItem>
         <MenuItem onClick={sOut}>Logout</MenuItem>
       </Menu>

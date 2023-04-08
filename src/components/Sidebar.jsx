@@ -1,4 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { Auth, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   List,
@@ -11,6 +14,7 @@ import {
 } from "@mui/material";
 import {
   AccountBox,
+  Dashboard,
   Group,
   Home,
   ModeNight,
@@ -18,9 +22,27 @@ import {
   Person,
   Settings,
   Shop,
+  Notifications,
+  Logout
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const [isStudent, setIsStudent] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if(!user.email.includes("@iitism.ac.in")){
+          setIsStudent(false);
+        }
+      }
+    });
+  
+    
+  }, [])
+  
   return (
     // <Box color="white" bgcolor="#2e323b" p={2} sx={{ display: { xs: "none", sm: "block" } }}>
     <Box color="white" bgcolor="#2e323b" p={3} sx={{ minWidth:"200px" , display: { xs: "none", sm: "block" } }}> 
@@ -28,38 +50,43 @@ const Sidebar = () => {
       <Box sx={{ position: "fixed" }}>
         <Typography variant="h4" sx={{textAlign:"center", color:"#4ba2b6"}}>Recutes</Typography>
         <List>
+          {isStudent ? 
+          <>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton component="a" onClick={()=>{navigate("/student")}}>
               <ListItemIcon style={{color: "#4ba2b6"}}>
-                <Home />
+                <Dashboard />
               </ListItemIcon>
-              <ListItemText primary="HomePage" />
+              <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton component="a" onClick={()=>{navigate("/student/profile")}}>
               <ListItemIcon style={{color: "#4ba2b6"}}>
-                <Pages />
+                <Person />
               </ListItemIcon>
-              <ListItemText primary="Pages" />
+              <ListItemText primary="Profile" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton component="a" onClick={()=>{navigate("/student/notification")}}>
               <ListItemIcon style={{color: "#4ba2b6"}}>
-                <Group />
+                <Notifications />
               </ListItemIcon>
-              <ListItemText primary="Groups" />
+              <ListItemText primary="Notification" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+          {/* <ListItem disablePadding>
+            <ListItemButton component="a" onClick={()=>{navigate("/student")}}>
               <ListItemIcon style={{color: "#4ba2b6"}}>
-                <Shop />
+                <Logout />
               </ListItemIcon>
-              <ListItemText primary="MarketPlace" />
+              <ListItemText primary="Logout" />
             </ListItemButton>
-          </ListItem>
+          </ListItem> */}
+          </>
+          :
+          <>
           <ListItem disablePadding>
             <ListItemButton component="a" href="#home">
               <ListItemIcon style={{color: "#4ba2b6"}}>
@@ -92,6 +119,8 @@ const Sidebar = () => {
               <Switch />
             </ListItemButton>
           </ListItem>
+          </>
+          }
         </List>
       </Box>
     </Box>
