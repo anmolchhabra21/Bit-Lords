@@ -53,7 +53,7 @@ const StudentCard = (props) => {
 
   console.log("props", props)
   return (
-    <AppBar sx={{borderRadius:"10px", margin:"1.5rem 0", color:"black", backgroundColor:"white"}} position="static">
+    <AppBar className='studentJobCard' sx={{borderRadius:"10px", margin:"1.5rem 0", color:"black", backgroundColor:"white"}} position="static">
         <Toolbar >
         <Avatar alt="Remy Sharp" src={props.imageURL} />
           <Typography p={2} variant="h6" component="div" sx={{ flexGrow: 1 }}>

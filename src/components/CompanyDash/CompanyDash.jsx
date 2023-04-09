@@ -21,8 +21,8 @@ const CompanyDash = () => {
           <CardMedia
             component="img"
             height="140"
-            image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-            alt="green iguana"
+            image="https://resources.workable.com/wp-content/uploads/2018/02/ru-jobs-tab-featured.png"
+            alt="add-job"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -40,7 +40,7 @@ const CompanyDash = () => {
           <CardMedia
             component="img"
             height="140"
-            image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+            image="https://logos-world.net/wp-content/uploads/2022/02/Microsoft-Excel-Symbol.png"
             alt="green iguana"
           />
           <CardContent>
@@ -60,7 +60,7 @@ const CompanyDash = () => {
           <CardMedia
             component="img"
             height="140"
-            image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+            image="https://images.idgesg.net/images/article/2019/01/android-q-notification-inbox-100785464-large.jpg?auto=webp&quality=85,70"
             alt="green iguana"
           />
           <CardContent>

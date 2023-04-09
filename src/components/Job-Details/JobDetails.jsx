@@ -83,8 +83,8 @@ const JobDetails = () => {
   }, []);
 
   const applyHandler = () => {
-    navigate('/student');
-  }
+    navigate("/student");
+  };
 
   return (
     <>
@@ -95,7 +95,11 @@ const JobDetails = () => {
           <div className={aman.companyHead}>
             <div className={aman.nameRole}>
               <span>
-                <img className={aman.nameRoleImage} src={compdata.imageURL} alt="" />
+                <img
+                  className={aman.nameRoleImage}
+                  src={compdata.imageURL}
+                  alt=""
+                />
               </span>
               <div className={aman.companyHeadLeft}>
                 <div>{compdata.companyName}</div>
@@ -105,14 +109,21 @@ const JobDetails = () => {
             </div>
 
             <div className={aman.companyHeadRight}>
-              <button className={aman.applyBtn} onClick={applyHandler} >Apply</button>
+              <button className={aman.applyBtn} onClick={applyHandler}>
+                Apply
+              </button>
             </div>
           </div>
 
           <div className={aman.deadLine}>
+            <div className={aman.deadLineHeading}>
+              <h2>Application Deadline</h2>
+            </div>
             <ul>
               <li>
-                <h4 className={aman.applicationOpen}>Application are open now!</h4>
+                <h4 className={aman.applicationOpen}>
+                  Application are open now!
+                </h4>
               </li>
             </ul>
           </div>
@@ -153,6 +164,16 @@ const JobDetails = () => {
                 branches are welcomed to apply.
               </li>
               <b>
+                {/* <tr>
+                  <th>{compdata["CSE"]}</th>
+                  <th>{compdata["Civil"]}</th>
+                  <th>{compdata["ECE"]}</th>
+                  <th>{compdata["MnC"]}</th>
+                  <th>{compdata["EE"]}</th>
+                  <th>{compdata["Mech"]}</th>
+                  <th>{compdata["Mining"]}</th>
+                  <th>{compdata["Petro"]}</th>
+                </tr> */}
                 <ul>{compdata["CSE"]}</ul>
                 <ul>{compdata["Civil"]}</ul>
                 <ul>{compdata["ECE"]}</ul>
@@ -161,7 +182,10 @@ const JobDetails = () => {
                 <ul>{compdata["Mech"]}</ul>
                 <ul>{compdata["Mining"]}</ul>
                 <ul>{compdata["Petro"]}</ul>
-              <li>A mininum of <u>{compdata.minCGPA}</u> CGPA aggregate upto last semester.</li>
+                <li>
+                  A mininum of <u>{compdata.minCGPA}</u> CGPA aggregate upto
+                  last semester.
+                </li>
               </b>
 
               {companyDetails.companyDesc.basicQualifications.map((basicQ) => (

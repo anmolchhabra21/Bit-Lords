@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import aman from "./Notification.module.css";
-import { doc, getDoc, setDoc, collection, query, where, getDocs  } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { auth, db } from "../../firebase";
 
 const Notification = () => {
   let usernames = null;
   let fetchcompname = "";
   let fdata = {};
-  let [ compData, setCompData ] = useState([]);
-  let [ value , setValue ] = useState("");
+  let [compData, setCompData] = useState([]);
+  let [value, setValue] = useState("");
 
   //Fetch Company Job Profile
   useEffect(() => {
@@ -16,7 +24,7 @@ const Notification = () => {
       if (user) {
         const compRef = collection(db, "companies");
         const q = query(compRef, where("compID", "==", user.uid));
-  
+
         const querySnapshot = await getDocs(q);
         const arr = [];
         querySnapshot.forEach((doc) => {
@@ -30,11 +38,7 @@ const Notification = () => {
       }
     });
     console.log("compdata", compData);
-    
-    
-  }, [])
-  
-
+  }, []);
 
   const studentnot = async () => {
     console.log("usernames ", usernames);
@@ -66,7 +70,7 @@ const Notification = () => {
     fdata = { desc: data.get("textarea"), title: data.get("title") };
 
     console.log("data ", data.get("textarea"));
-    
+
     // console.log("user", user.);
 
     const docRef = doc(db, "companies", data.get("profile"));
@@ -82,26 +86,27 @@ const Notification = () => {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
-    
+
     alert("Message successfully sent to eligible students!!");
   };
 
   return (
     <div className={aman.formWrapper}>
       <form className={aman.form} onSubmit={handleClick}>
-        <h2 className={aman.heading}>Notify Placement Cell</h2>
-        <label>Job Profile </label>
-              {compData.length ?
-                <select id="type" name="profile" >
-                  
-                  {compData.map((singlearr,index)=>(
-                  <option key={index} value={singlearr.docid}>{singlearr.position}</option>
-                ))}
-              </select>
-              :
-              <h3>plese Create a Job First</h3>
-              }
-                {/* {compData.length ? 
+        <h2 className={aman.heading}>Notify All Applicants</h2>
+        {/* <label>Job Profile </label> */}
+        {compData.length ? (
+          <select id="type" name="profile">
+            {compData.map((singlearr, index) => (
+              <option key={index} value={singlearr.docid}>
+                {singlearr.position}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <h3 style={{color:'red'}}>Plese Create a Job First</h3>
+        )}
+        {/* {compData.length ? 
                 compData.map((singlearr)=>(
                   <option value={compData.docid}>{singlearr.position}</option>
                 ))
@@ -109,7 +114,7 @@ const Notification = () => {
                 <option value="None">No Jobs Created</option>
                 }
                  */}
-                {/* <option value="Core">Core</option>
+        {/* <option value="Core">Core</option>
                 <option value="Finance">Finance</option> */}
         <input
           className={aman.input}
