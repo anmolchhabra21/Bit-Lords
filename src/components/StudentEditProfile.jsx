@@ -94,14 +94,16 @@ const StudentEditProfile = () => {
       <Navbar />
       <div style={{ display: "flex", height: "100vh" }}>
         <Sidebar />
-        <div className='studentEditFormWrapper'>
+        <div className='studentEditFormWrapper' style={{
+          width: '50%',
+        }}>
           <h2 style={{
             marginBottom: '0px',
-          }} className="preventTextSelection">Student Edit Profile</h2>
+          }} className="preventTextSelection">Student Profile</h2>
           <br />
           <form className="studentEditForm" onSubmit={handleSubmit}>
             <div className={styles.AddJob}>
-              <label>Name </label>
+              <label><b>Name</b> </label>
               <input
                 className={styles.Input}
                 type="text"
@@ -113,7 +115,7 @@ const StudentEditProfile = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label>Roll No </label>
+              <label><b>Roll No</b> </label>
               <input
                 className={styles.Input}
                 type="text"
@@ -155,7 +157,7 @@ const StudentEditProfile = () => {
           </span>
         </div> */}
             <div className={styles.AddJob}>
-              <label>CGPA </label>
+              <label><b>CGPA</b> </label>
               <input
                 className={styles.Input}
                 type="number"
@@ -168,7 +170,7 @@ const StudentEditProfile = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label>Resume Link </label>
+              <label><b>Resume Link</b> </label>
               <input
                 className={styles.Input}
                 type="text"
@@ -181,7 +183,7 @@ const StudentEditProfile = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label>Select Department </label>{" "}
+              <label><b>Select Department</b> </label>{" "}
               <select
                 id="type"
                 value={selectval}
@@ -200,7 +202,7 @@ const StudentEditProfile = () => {
               </select>
             </div>
             <Button style={{
-              
+              marginTop: '20px',
             }} variant="contained" type="submit">
               Submit
             </Button>
