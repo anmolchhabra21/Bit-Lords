@@ -4,6 +4,7 @@ import {FaFileDownload} from 'react-icons/fa'
 import { auth, db } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { doc, getDoc} from "firebase/firestore"; 
+import Navbar from '../Navbar';
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"></link>
 
 const data = [
@@ -68,6 +69,8 @@ function Table() {
   },[])
   let coun = 0;
   return (
+    <>
+    <Navbar/>
     <div className="App">
       {compdata?
       compdata.map((firstd, index)=>(
@@ -106,6 +109,7 @@ function Table() {
       ))
        : <h1>No data to show till now...</h1>}
     </div>
+  </>
   );
 }
 
