@@ -33,7 +33,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const StudentProfile = () => {
   let username = null;
-
+  const [temparr, setTemparr] = useState([]);
   const [filterData, setFilterData] = useState([]);
 
   let dataArr = [];
@@ -54,7 +54,8 @@ const StudentProfile = () => {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
-    console.log(fetbranch, fetcgpa);
+    setTemparr(appliedFor);
+    console.log("applied for ", appliedFor, fetbranch, fetcgpa);
 
     const q = query(
       collection(db, "companies"),
@@ -76,6 +77,7 @@ const StudentProfile = () => {
       dataArr.push(valu);
       
     });
+    // console.log("dataarr", dataArr);
     setFilterData(dataArr);
   };
 
@@ -92,13 +94,15 @@ const StudentProfile = () => {
   return (
     <Box height="100vh" width="100%" p={2}>
       {/* <ul>{myArr}</ul> */}
-      {/* <Typography variant="h3"> Hi Bhai!! </Typography> */}
+      <Typography variant="h2"> Student's Dashboard </Typography>
       <Grid container justifyContent>
-        {Array.from(Array(4)).map((_, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index} alignItems="center">
-            <Item>xs=2</Item>
-          </Grid>
-        ))}
+          {filterData.length?(<Grid item xs={12} sm={6} md={3}  alignItems="center">
+            <Item><Typography sx={{fontWeight:"bold"}}>Available Jobs</Typography>{filterData.length}</Item>
+          </Grid>):<h2>Loading...</h2>}
+          {temparr.length?(<Grid item xs={12} sm={6} md={3}  alignItems="center">
+            <Item><Typography sx={{fontWeight:"bold"}}>Applied For</Typography>{temparr.length} Jobs</Item>
+          </Grid>):<h2>Loading...</h2>}
+        
       </Grid>
       <div
         style={{
