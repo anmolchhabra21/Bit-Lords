@@ -112,7 +112,7 @@ const AddJob = () => {
           <br />
           <form onSubmit={handleSubmit}>
             <div className={styles.AddJob}>
-              <label>Name </label>
+              <label><b>Name</b> </label>
               <input
                 className={styles.Input}
                 type="text"
@@ -121,7 +121,7 @@ const AddJob = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label>Position </label>
+              <label> <b>Position</b> </label>
               <input
                 className={styles.Input}
                 type="text"
@@ -131,7 +131,7 @@ const AddJob = () => {
               <br />
             </div>
             <div className={styles.AddJob}>
-              <label>Salary </label>
+              <label> <b>Salary</b> </label>
               <input
                 className={styles.Input}
                 type="number"
@@ -141,25 +141,28 @@ const AddJob = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label>Description </label>
+              <label> <b>Description</b> </label>
               <textarea
                 className={styles.Input}
                 id="w3review"
                 name="description"
                 rows="5"
                 placeholder="Enter Job Description"
+                style={{
+                  resize: 'none',
+                }}
               ></textarea>
             </div>
             <div className={styles.AddJob}>
-              <label>Type </label>{" "}
+              <label> <b>Type</b> </label>{" "}
               <select id="type" name="domains">
-                <option value="IT">IT</option>
-                <option value="Core">Core</option>
-                <option value="Finance">Finance</option>
+                <option value="IT">Information Technology</option>
+                <option value="Core">Core Hirings</option>
+                <option value="Finance">Finance Roles</option>
               </select>
             </div>
             <div className={styles.AddJob}>
-              <label>Minimum CGPA </label>
+              <label> <b>Minimum CGPA</b> </label>
               <input
                 className={styles.Input}
                 type="number"
@@ -169,7 +172,7 @@ const AddJob = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label className="title">Eligible Departments</label>
+              <label className="title"> <b>Eligible Departments</b> </label>
 
               <span>
                 <input
@@ -238,7 +241,7 @@ const AddJob = () => {
               </span>
             </div>
             <div className={styles.AddJob}>
-              <label>Company Logo </label>
+              <label> <b>Company Logo</b> </label>
               <input
                 className={styles.Input}
                 type="file"

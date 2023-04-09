@@ -47,7 +47,7 @@ const Sidebar = () => {
   
   return (
     // <Box color="white" bgcolor="#2e323b" p={2} sx={{ display: { xs: "none", sm: "block" } }}>
-    <Box color="white" bgcolor="#2e323b" p={3} sx={{ minWidth:"170px" , display: { xs: "none", sm: "block" } }}> 
+    <Box color="white" bgcolor="#2e323b" p={3} sx={{ minWidth:"190px" , display: { xs: "none", sm: "block" } }}> 
       {/* <Box sx={{ position: "fixed" }}> */}
       <Box sx={{ position: "fixed" }}>
         <Typography variant="h5" sx={{ color:"#4ba2b6"}}>Placement Cell</Typography>

@@ -48,9 +48,9 @@ export default function StudentNotification() {
     <div>
       
       <Navbar />
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div style={{ display: "flex", height: "100vh"}}>
       <Sidebar />
-      <Container sx={{mt:2, p:2, backgroundColor:"#e7ebf0", borderRadius:"8px"}}>
+      <Container sx={{mt:2, p:2, backgroundColor:"#e7ebf0", borderRadius:"8px" , marginTop: '0px'}}>
       <Typography sx={{m:3}} variant='h4'>Notifications</Typography>
       {fetchdat?
       fetchdat.map((sing, index)=>(
