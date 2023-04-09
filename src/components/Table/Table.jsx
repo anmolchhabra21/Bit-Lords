@@ -5,6 +5,7 @@ import { auth, db } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { doc, getDoc} from "firebase/firestore"; 
 import Navbar from '../Navbar';
+import Test from '../Test';
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"></link>
 
 const data = [
@@ -68,6 +69,7 @@ function Table() {
     })
   },[])
   let coun = 0;
+  console.log("here",compdata);
   return (
     <>
     <Navbar/>
@@ -75,7 +77,7 @@ function Table() {
       {compdata?
       compdata.map((firstd, index)=>(
         <>
-        <h2 className='head'>{comNamedata[coun]["companyName"]}{"  "}{comNamedata[coun]["position"]}</h2>
+        <h2 className='head'>{comNamedata[coun]["companyName"]}{"  "}{comNamedata[coun]["position"]}</h2><Test data={firstd}/>
       <table key={index} className="subham.ceter" >
         <thead>
           <tr>
