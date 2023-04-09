@@ -102,7 +102,7 @@ const Navbar = () => {
     <AppBar position="sticky">
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          CDC Portal 
+          CDC IIT(ISM) Portal
         </Typography>
         <SnippetFolderIcon sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
@@ -155,7 +155,7 @@ const Navbar = () => {
             <MenuItem> Profile</MenuItem>{" "}
           </Link>
         ) : null}
-        <MenuItem>My account</MenuItem>
+        {/* <MenuItem>My account</MenuItem> */}
         <MenuItem onClick={sOut}>Logout</MenuItem>
       </Menu>
     </AppBar>

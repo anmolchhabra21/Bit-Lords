@@ -177,7 +177,7 @@ export const Navbar = () => {
           gap: "1rem",
         }}
       >
-        <NavLink variant="body2">Log In</NavLink>
+        {/* <NavLink variant="body2">Log In</NavLink> */}
         {/* <CustomButton
           backgroundColor="#0F1B4C"
           color="#fff"

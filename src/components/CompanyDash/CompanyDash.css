@@ -1,16 +1,25 @@
-.cd-container{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 5px;
-    padding: 15px;
+.cd-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 5px;
+  padding: 15px;
+
 }
 
-.cd-head{
-    text-align: center;
-    margin: 25px 8px;
+.cd-head {
+  text-align: center;
+  margin: 25px 8px;
+  font-family: "Courier New", Courier, monospace;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.cd-card{
-    margin: 25px 10px;
+.cd-card {
+  margin: 25px 10px;
+
+  /* transform: translate(0, -8px);
+  transition: transform 330ms ease-in-out; */
 }

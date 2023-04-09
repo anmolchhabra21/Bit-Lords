@@ -18,6 +18,18 @@
 
 .preventTextSelection {
   -webkit-user-select: none;
-  -ms-user-select: none; 
+  -ms-user-select: none;
   user-select: none;
+}
+
+.studentJobCard:hover {
+  transform: translate(0, -8px);
+  transition: transform 330ms ease-in-out;
+}
+
+.studentEditFormWrapper {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }

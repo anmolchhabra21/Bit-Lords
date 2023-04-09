@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import { doc, setDoc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import '../css/Hero.css'
 
 const StudentEditProfile = () => {
   const [newu, setNewu] = useState(null);
@@ -93,10 +94,12 @@ const StudentEditProfile = () => {
       <Navbar />
       <div style={{ display: "flex", height: "100vh" }}>
         <Sidebar />
-        <div className={styles.container}>
-          <h2>Student Edit Profile</h2>
+        <div className='studentEditFormWrapper'>
+          <h2 style={{
+            marginBottom: '0px',
+          }} className="preventTextSelection">Student Edit Profile</h2>
           <br />
-          <form onSubmit={handleSubmit}>
+          <form className="studentEditForm" onSubmit={handleSubmit}>
             <div className={styles.AddJob}>
               <label>Name </label>
               <input
@@ -178,7 +181,7 @@ const StudentEditProfile = () => {
               />
             </div>
             <div className={styles.AddJob}>
-              <label>Type </label>{" "}
+              <label>Select Department </label>{" "}
               <select
                 id="type"
                 value={selectval}
@@ -196,7 +199,9 @@ const StudentEditProfile = () => {
                 {/* {console.log('rerendering', selectval)} */}
               </select>
             </div>
-            <Button variant="contained" type="submit">
+            <Button style={{
+              
+            }} variant="contained" type="submit">
               Submit
             </Button>
           </form>
