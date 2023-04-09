@@ -33,7 +33,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const StudentProfile = () => {
   let username = null;
-  const [temparr, setTemparr] = useState(null);
+  const [temparr, setTemparr] = useState([]);
   const [filterData, setFilterData] = useState([]);
 
   let dataArr = [];
