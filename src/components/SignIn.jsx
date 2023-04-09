@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+import Linker from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import aman from "../css/signin.module.css";
 
 function Copyright(props) {
@@ -27,9 +27,9 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="/">
+      <Linker color="inherit" href="/">
         CDC IIT(ISM) Dhanbad
-      </Link>{" "}
+      </Linker>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -144,11 +144,11 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2" style={{
+                <Linker href="#" variant="body2" style={{
                   
                 }}>
                   Forgot password?
-                </Link>
+                </Linker>
               </Grid>
               <Grid item>
                 <Link to="/signup" variant="body2">

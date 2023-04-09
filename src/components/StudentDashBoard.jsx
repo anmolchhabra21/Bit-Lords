@@ -40,7 +40,7 @@ const StudentProfile = () => {
   const getDocSnap = async () => {
     let fetbranch;
     let fetcgpa;
-    let appliedFor = null;
+    let appliedFor = [];
 
     const docRef = doc(db, "student", username.uid);
     const docSnap = await getDoc(docRef);
@@ -96,10 +96,11 @@ const StudentProfile = () => {
       {/* <ul>{myArr}</ul> */}
       <Typography variant="h2"> Student's Dashboard </Typography>
       <Grid container justifyContent>
-          {filterData.length?(<Grid item xs={12} sm={6} md={3}  alignItems="center">
+          {filterData?(<Grid item xs={12} sm={6} md={3}  alignItems="center">
             <Item><Typography sx={{fontWeight:"bold"}}>Available Jobs</Typography>{filterData.length}</Item>
           </Grid>):<h2>Loading...</h2>}
-          {temparr.length?(<Grid item xs={12} sm={6} md={3}  alignItems="center">
+          {console.log(temparr)}
+          {temparr?(<Grid item xs={12} sm={6} md={3}  alignItems="center">
             <Item><Typography sx={{fontWeight:"bold"}}>Applied For</Typography>{temparr.length} Jobs</Item>
           </Grid>):<h2>Loading...</h2>}
         
