@@ -1,23 +1,12 @@
 ## Abstract
-This project aims to create an CDC portal for our college that will provide a streamlined
-and efficient platform to conduct the placement process by automating all the manual
-
-work involved in the process and eliminating the need for costly third-party
-
-websites(superset) currently which we are using (which do not provide flexibility) to
-
-improve the overall recruitment experience for all parties involved.
+This project aims to create an CDC portal for our college that will provide a streamlined and efficient platform to conduct the placement process by automating all the manual work involved in the process and eliminating the need for costly third-party websites(superset) currently which we are using (which do not provide flexibility) to improve the overall recruitment experience for all parties involved.
 
 ## Problem Statement
 Currently, The placement and internship process at IIT(ISM) Dhanbad is mostly
 manual. SCPT members need to do a lot of manual work, and most of their time is
 wasted working with excel sheets.
 
-On the student side, they use a third-party web app named 'superset'
-
-, which comes
-
-with its own limitations.
+On the student side, they use a third-party web app named 'superset', which comes with its own limitations.
 Firstly, Superset is based on a subscription model and costs money, Secondly they
 don't provide any flexibility according to our needs and many of our requirements are
 still fulfilled manually.
@@ -30,18 +19,17 @@ redundant tasks instead of being utilized in grabbing new opportunities and thus
 hampers the placement stats of the college.
 
 # The main problems with superset are:
---> Lack of flexibilities
+--> **Lack of flexibilities**
 e.g., if we need any extra
 functionality for a smooth
 recruitment process that
 third-party websites will
 not provide that.
 
---> Costly
-e.g., subscription fees,
-commissions, and other
-associated costs.
---> Privacy issue
+--> **Costly**
+e.g., subscription fees, commissions, and other associated costs.
+
+--> **Privacy issue**
 Third-party websites are
 getting details about students &
 Companies registering for the
